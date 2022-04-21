@@ -43,7 +43,9 @@ namespace NEA
 
         private void SearchStaffButton_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            Manual_Assign_Menu ManualAssignWindow = new Manual_Assign_Menu();
+            ManualAssignWindow.ShowDialog();
         }
 
         private void CheckFloorsButton_Click(object sender, EventArgs e)

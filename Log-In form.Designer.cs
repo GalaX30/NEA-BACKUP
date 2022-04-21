@@ -37,6 +37,7 @@ namespace NEA
             this.LoginButton = new System.Windows.Forms.Button();
             this.ExitButton = new System.Windows.Forms.Button();
             this.SignatureLogo = new System.Windows.Forms.PictureBox();
+            this.incorrectLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.SignatureLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,12 +121,29 @@ namespace NEA
             this.SignatureLogo.TabIndex = 17;
             this.SignatureLogo.TabStop = false;
             // 
+            // incorrectLbl
+            // 
+            this.incorrectLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.incorrectLbl.AutoSize = true;
+            this.incorrectLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.incorrectLbl.Location = new System.Drawing.Point(91, 174);
+            this.incorrectLbl.Name = "incorrectLbl";
+            this.incorrectLbl.Size = new System.Drawing.Size(316, 17);
+            this.incorrectLbl.TabIndex = 18;
+            this.incorrectLbl.Text = "Username or password incorrect, please try again.";
+            this.incorrectLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.incorrectLbl.Visible = false;
+            this.incorrectLbl.Click += new System.EventHandler(this.incorrectLbl_Click);
+            // 
             // LoginWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(484, 279);
+            this.Controls.Add(this.incorrectLbl);
             this.Controls.Add(this.SignatureLogo);
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.LoginButton);
@@ -156,6 +174,7 @@ namespace NEA
         private System.Windows.Forms.Button LoginButton;
         private System.Windows.Forms.Button ExitButton;
         private System.Windows.Forms.PictureBox SignatureLogo;
+        private System.Windows.Forms.Label incorrectLbl;
     }
 }
 

@@ -57,6 +57,12 @@
     <Compile Include="Auto-Assign Menu.Designer.cs">
       <DependentUpon>Auto-Assign Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Check Floors Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Check Floors Menu.Designer.cs">
+      <DependentUpon>Check Floors Menu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Database.cs" />
     <Compile Include="Log-In form.cs">
       <SubType>Form</SubType>
@@ -70,6 +76,12 @@
     <Compile Include="Main Menu.Designer.cs">
       <DependentUpon>Main Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Manual-Assign Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manual-Assign Menu.Designer.cs">
+      <DependentUpon>Manual-Assign Menu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View Database Menu.cs">
@@ -81,11 +93,17 @@
     <EmbeddedResource Include="Auto-Assign Menu.resx">
       <DependentUpon>Auto-Assign Menu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Check Floors Menu.resx">
+      <DependentUpon>Check Floors Menu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Log-In form.resx">
       <DependentUpon>Log-In form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main Menu.resx">
       <DependentUpon>Main Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manual-Assign Menu.resx">
+      <DependentUpon>Manual-Assign Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

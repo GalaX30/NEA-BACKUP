@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SQLite;
 
 namespace NEA
 {
     public partial class LoginWindow : Form
     {
+        SQLiteConnection databaseConn = new SQLiteConnection("Data Source = StaffDatabaseComplete.db");
+
         public LoginWindow()
         {
             InitializeComponent();
@@ -34,14 +37,27 @@ namespace NEA
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Main_Menu MainmenuInterface = new Main_Menu();
-            MainmenuInterface.ShowDialog();
+            string query = "Select * from LoginTable where UsernameStaff = '" + UsernameTextBox.Text.Trim() + "' and PasswordStaff = '" + PasswordTextBox.Text.Trim() + "'";
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(query, databaseConn);
+            DataTable data = new DataTable();
+
+            adapter.Fill(data);
+
+            if (data.Rows.Count == 1)
+            {
+                this.Hide();
+                Main_Menu MainmenuInterface = new Main_Menu();
+                MainmenuInterface.ShowDialog();
+            }
+
+            else
+            {
+                incorrectLbl.Show();
+            }
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
-            //this.Close();
             Application.Exit();
         }
 
@@ -54,5 +70,11 @@ namespace NEA
         {
 
         }
+
+        private void incorrectLbl_Click(object sender, EventArgs e)
+        {
+
+        }
     }
+
 }

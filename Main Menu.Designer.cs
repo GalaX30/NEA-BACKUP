@@ -31,13 +31,12 @@ namespace NEA
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Menu));
             this.exitBtn = new System.Windows.Forms.Button();
-            this.CheckDatabaseButton = new System.Windows.Forms.Button();
-            this.AutoAssignButton = new System.Windows.Forms.Button();
-            this.SearchStaffButton = new System.Windows.Forms.Button();
-            this.CheckFloorsButton = new System.Windows.Forms.Button();
-            this.ProfileButton = new System.Windows.Forms.Button();
+            this.databaseBtn = new System.Windows.Forms.Button();
+            this.autoassignBtn = new System.Windows.Forms.Button();
+            this.manualassignBtn = new System.Windows.Forms.Button();
+            this.floorsBtn = new System.Windows.Forms.Button();
             this.SignatureLogo = new System.Windows.Forms.PictureBox();
-            this.AdminSettingsButton = new System.Windows.Forms.Button();
+            this.adminBtn = new System.Windows.Forms.Button();
             this.logoutBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.SignatureLogo)).BeginInit();
             this.SuspendLayout();
@@ -47,7 +46,7 @@ namespace NEA
             this.exitBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.exitBtn.Location = new System.Drawing.Point(16, 536);
+            this.exitBtn.Location = new System.Drawing.Point(13, 419);
             this.exitBtn.Margin = new System.Windows.Forms.Padding(4);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(99, 37);
@@ -56,82 +55,68 @@ namespace NEA
             this.exitBtn.UseVisualStyleBackColor = false;
             this.exitBtn.Click += new System.EventHandler(this.ExitButton_Click);
             // 
-            // CheckDatabaseButton
+            // databaseBtn
             // 
-            this.CheckDatabaseButton.BackColor = System.Drawing.Color.Orchid;
-            this.CheckDatabaseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CheckDatabaseButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.CheckDatabaseButton.Location = new System.Drawing.Point(373, 41);
-            this.CheckDatabaseButton.Margin = new System.Windows.Forms.Padding(4);
-            this.CheckDatabaseButton.Name = "CheckDatabaseButton";
-            this.CheckDatabaseButton.Size = new System.Drawing.Size(419, 99);
-            this.CheckDatabaseButton.TabIndex = 10;
-            this.CheckDatabaseButton.Text = "Open Database";
-            this.CheckDatabaseButton.UseVisualStyleBackColor = false;
-            this.CheckDatabaseButton.Click += new System.EventHandler(this.CheckDatabaseButton_Click);
+            this.databaseBtn.BackColor = System.Drawing.Color.Orchid;
+            this.databaseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.databaseBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.databaseBtn.Location = new System.Drawing.Point(13, 161);
+            this.databaseBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.databaseBtn.Name = "databaseBtn";
+            this.databaseBtn.Size = new System.Drawing.Size(332, 99);
+            this.databaseBtn.TabIndex = 10;
+            this.databaseBtn.Text = "Open Database";
+            this.databaseBtn.UseVisualStyleBackColor = false;
+            this.databaseBtn.Click += new System.EventHandler(this.CheckDatabaseButton_Click);
             // 
-            // AutoAssignButton
+            // autoassignBtn
             // 
-            this.AutoAssignButton.BackColor = System.Drawing.Color.Orchid;
-            this.AutoAssignButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AutoAssignButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.AutoAssignButton.Location = new System.Drawing.Point(373, 161);
-            this.AutoAssignButton.Margin = new System.Windows.Forms.Padding(4);
-            this.AutoAssignButton.Name = "AutoAssignButton";
-            this.AutoAssignButton.Size = new System.Drawing.Size(419, 99);
-            this.AutoAssignButton.TabIndex = 12;
-            this.AutoAssignButton.Text = "Auto-Assign Carers";
-            this.AutoAssignButton.UseVisualStyleBackColor = false;
-            this.AutoAssignButton.Click += new System.EventHandler(this.AutoAssignButton_Click);
+            this.autoassignBtn.BackColor = System.Drawing.Color.Orchid;
+            this.autoassignBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.autoassignBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.autoassignBtn.Location = new System.Drawing.Point(13, 283);
+            this.autoassignBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.autoassignBtn.Name = "autoassignBtn";
+            this.autoassignBtn.Size = new System.Drawing.Size(332, 99);
+            this.autoassignBtn.TabIndex = 12;
+            this.autoassignBtn.Text = "Auto-Assign Carers";
+            this.autoassignBtn.UseVisualStyleBackColor = false;
+            this.autoassignBtn.Click += new System.EventHandler(this.AutoAssignButton_Click);
             // 
-            // SearchStaffButton
+            // manualassignBtn
             // 
-            this.SearchStaffButton.BackColor = System.Drawing.Color.Orchid;
-            this.SearchStaffButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SearchStaffButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.SearchStaffButton.Location = new System.Drawing.Point(373, 281);
-            this.SearchStaffButton.Margin = new System.Windows.Forms.Padding(4);
-            this.SearchStaffButton.Name = "SearchStaffButton";
-            this.SearchStaffButton.Size = new System.Drawing.Size(419, 99);
-            this.SearchStaffButton.TabIndex = 13;
-            this.SearchStaffButton.Text = "Search Staff";
-            this.SearchStaffButton.UseVisualStyleBackColor = false;
-            this.SearchStaffButton.Click += new System.EventHandler(this.SearchStaffButton_Click);
+            this.manualassignBtn.BackColor = System.Drawing.Color.Orchid;
+            this.manualassignBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.manualassignBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.manualassignBtn.Location = new System.Drawing.Point(372, 283);
+            this.manualassignBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.manualassignBtn.Name = "manualassignBtn";
+            this.manualassignBtn.Size = new System.Drawing.Size(332, 99);
+            this.manualassignBtn.TabIndex = 13;
+            this.manualassignBtn.Text = "Manual-Assign Carers";
+            this.manualassignBtn.UseVisualStyleBackColor = false;
+            this.manualassignBtn.Click += new System.EventHandler(this.SearchStaffButton_Click);
             // 
-            // CheckFloorsButton
+            // floorsBtn
             // 
-            this.CheckFloorsButton.BackColor = System.Drawing.Color.Orchid;
-            this.CheckFloorsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CheckFloorsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.CheckFloorsButton.Location = new System.Drawing.Point(373, 401);
-            this.CheckFloorsButton.Margin = new System.Windows.Forms.Padding(4);
-            this.CheckFloorsButton.Name = "CheckFloorsButton";
-            this.CheckFloorsButton.Size = new System.Drawing.Size(419, 99);
-            this.CheckFloorsButton.TabIndex = 14;
-            this.CheckFloorsButton.Text = "Check Floors";
-            this.CheckFloorsButton.UseVisualStyleBackColor = false;
-            this.CheckFloorsButton.Click += new System.EventHandler(this.CheckFloorsButton_Click);
-            // 
-            // ProfileButton
-            // 
-            this.ProfileButton.BackColor = System.Drawing.Color.Orchid;
-            this.ProfileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ProfileButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ProfileButton.Location = new System.Drawing.Point(39, 161);
-            this.ProfileButton.Margin = new System.Windows.Forms.Padding(4);
-            this.ProfileButton.Name = "ProfileButton";
-            this.ProfileButton.Size = new System.Drawing.Size(295, 340);
-            this.ProfileButton.TabIndex = 15;
-            this.ProfileButton.Text = "My Info";
-            this.ProfileButton.UseVisualStyleBackColor = false;
-            this.ProfileButton.Click += new System.EventHandler(this.ProfileButton_Click);
+            this.floorsBtn.BackColor = System.Drawing.Color.Orchid;
+            this.floorsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.floorsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.floorsBtn.Location = new System.Drawing.Point(372, 161);
+            this.floorsBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.floorsBtn.Name = "floorsBtn";
+            this.floorsBtn.Size = new System.Drawing.Size(332, 99);
+            this.floorsBtn.TabIndex = 14;
+            this.floorsBtn.Text = "Check Floors";
+            this.floorsBtn.UseVisualStyleBackColor = false;
+            this.floorsBtn.Click += new System.EventHandler(this.CheckFloorsButton_Click);
             // 
             // SignatureLogo
             // 
             this.SignatureLogo.BackColor = System.Drawing.Color.Transparent;
             this.SignatureLogo.Image = ((System.Drawing.Image)(resources.GetObject("SignatureLogo.Image")));
             this.SignatureLogo.InitialImage = ((System.Drawing.Image)(resources.GetObject("SignatureLogo.InitialImage")));
-            this.SignatureLogo.Location = new System.Drawing.Point(16, 26);
+            this.SignatureLogo.Location = new System.Drawing.Point(192, 23);
             this.SignatureLogo.Margin = new System.Windows.Forms.Padding(0);
             this.SignatureLogo.Name = "SignatureLogo";
             this.SignatureLogo.Size = new System.Drawing.Size(332, 114);
@@ -140,26 +125,26 @@ namespace NEA
             this.SignatureLogo.TabStop = false;
             this.SignatureLogo.Click += new System.EventHandler(this.SignatureLogo_Click);
             // 
-            // AdminSettingsButton
+            // adminBtn
             // 
-            this.AdminSettingsButton.BackColor = System.Drawing.Color.Silver;
-            this.AdminSettingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AdminSettingsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.AdminSettingsButton.Location = new System.Drawing.Point(373, 536);
-            this.AdminSettingsButton.Margin = new System.Windows.Forms.Padding(4);
-            this.AdminSettingsButton.Name = "AdminSettingsButton";
-            this.AdminSettingsButton.Size = new System.Drawing.Size(419, 37);
-            this.AdminSettingsButton.TabIndex = 17;
-            this.AdminSettingsButton.Text = "Admin Settings";
-            this.AdminSettingsButton.UseVisualStyleBackColor = false;
-            this.AdminSettingsButton.Click += new System.EventHandler(this.AdminSettingsButton_Click);
+            this.adminBtn.BackColor = System.Drawing.Color.Silver;
+            this.adminBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.adminBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.adminBtn.Location = new System.Drawing.Point(372, 419);
+            this.adminBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.adminBtn.Name = "adminBtn";
+            this.adminBtn.Size = new System.Drawing.Size(332, 37);
+            this.adminBtn.TabIndex = 17;
+            this.adminBtn.Text = "Admin Settings";
+            this.adminBtn.UseVisualStyleBackColor = false;
+            this.adminBtn.Click += new System.EventHandler(this.AdminSettingsButton_Click);
             // 
             // logoutBtn
             // 
             this.logoutBtn.BackColor = System.Drawing.Color.Silver;
             this.logoutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.logoutBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.logoutBtn.Location = new System.Drawing.Point(123, 536);
+            this.logoutBtn.Location = new System.Drawing.Point(120, 419);
             this.logoutBtn.Margin = new System.Windows.Forms.Padding(4);
             this.logoutBtn.Name = "logoutBtn";
             this.logoutBtn.Size = new System.Drawing.Size(99, 37);
@@ -173,16 +158,15 @@ namespace NEA
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(832, 588);
+            this.ClientSize = new System.Drawing.Size(717, 469);
             this.Controls.Add(this.logoutBtn);
-            this.Controls.Add(this.AdminSettingsButton);
+            this.Controls.Add(this.adminBtn);
             this.Controls.Add(this.SignatureLogo);
-            this.Controls.Add(this.ProfileButton);
-            this.Controls.Add(this.CheckFloorsButton);
-            this.Controls.Add(this.SearchStaffButton);
-            this.Controls.Add(this.AutoAssignButton);
+            this.Controls.Add(this.floorsBtn);
+            this.Controls.Add(this.manualassignBtn);
+            this.Controls.Add(this.autoassignBtn);
             this.Controls.Add(this.exitBtn);
-            this.Controls.Add(this.CheckDatabaseButton);
+            this.Controls.Add(this.databaseBtn);
             this.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -198,13 +182,12 @@ namespace NEA
         #endregion
 
         private System.Windows.Forms.Button exitBtn;
-        private System.Windows.Forms.Button CheckDatabaseButton;
-        private System.Windows.Forms.Button AutoAssignButton;
-        private System.Windows.Forms.Button SearchStaffButton;
-        private System.Windows.Forms.Button CheckFloorsButton;
-        private System.Windows.Forms.Button ProfileButton;
+        private System.Windows.Forms.Button databaseBtn;
+        private System.Windows.Forms.Button autoassignBtn;
+        private System.Windows.Forms.Button manualassignBtn;
+        private System.Windows.Forms.Button floorsBtn;
         private System.Windows.Forms.PictureBox SignatureLogo;
-        private System.Windows.Forms.Button AdminSettingsButton;
+        private System.Windows.Forms.Button adminBtn;
         private System.Windows.Forms.Button logoutBtn;
     }
 }

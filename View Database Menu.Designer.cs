@@ -51,12 +51,13 @@
             // 
             // databaseList
             // 
+            this.databaseList.Font = new System.Drawing.Font("Leelawadee UI", 10.75F, System.Drawing.FontStyle.Bold);
             this.databaseList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.databaseList.FormattingEnabled = true;
-            this.databaseList.ItemHeight = 17;
+            this.databaseList.ItemHeight = 19;
             this.databaseList.Location = new System.Drawing.Point(30, 30);
             this.databaseList.Name = "databaseList";
-            this.databaseList.Size = new System.Drawing.Size(313, 412);
+            this.databaseList.Size = new System.Drawing.Size(313, 403);
             this.databaseList.TabIndex = 41;
             this.databaseList.SelectedIndexChanged += new System.EventHandler(this.databaseList_SelectedIndexChanged);
             // 
@@ -292,7 +293,7 @@
             this.searchBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.searchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.searchBtn.Location = new System.Drawing.Point(337, 538);
+            this.searchBtn.Location = new System.Drawing.Point(340, 538);
             this.searchBtn.Margin = new System.Windows.Forms.Padding(4);
             this.searchBtn.Name = "searchBtn";
             this.searchBtn.Size = new System.Drawing.Size(99, 37);
