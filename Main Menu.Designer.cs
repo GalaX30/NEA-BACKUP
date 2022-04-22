@@ -137,6 +137,7 @@ namespace NEA
             this.adminBtn.TabIndex = 17;
             this.adminBtn.Text = "Admin Settings";
             this.adminBtn.UseVisualStyleBackColor = false;
+            this.adminBtn.Visible = false;
             this.adminBtn.Click += new System.EventHandler(this.AdminSettingsButton_Click);
             // 
             // logoutBtn

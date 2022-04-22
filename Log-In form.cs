@@ -45,15 +45,73 @@ namespace NEA
 
             if (data.Rows.Count == 1)
             {
+
+                //SQLiteCommand checkPerm = new SQLiteCommand("SELECT * FROM LoginTable WHERE (PermissionLevel = @user)", databaseConn);
+                //checkPerm.Parameters.AddWithValue("@user", txtBox_UserName.Text);
+                //string staffPerm = (string)checkPerm.ExecuteScalar();
+
+                //if (staffPerm == "Admin")
+                //{
+                //    PublicVariables.permission = true;
+                //}
+
+                //else
+                //{
+                //    PublicVariables.permission = false;
+                //}
+
+                ////Create a database reader
+                //databaseConn.Open();
+
+                ////create a new SqlParameter
+                ////                        your username textbox ↓    
+                //SQLiteParameter customParm = new SQLiteParameter("@username", UsernameTextBox.Text);
+
+                ////                     your username column ↓    
+                //string sql = "select * from LoginTable where UsernameStaff=@username";
+                //SQLiteCommand customCmd = new SQLiteCommand(sql, databaseConn);
+                //SQLiteDataReader dataRead = customCmd.ExecuteReader();
+
+                //while (dataRead.Read())
+                //{
+                //    //reads permission column
+                //    PublicVariables.permission = Convert.ToBoolean(dataRead["permission"]);
+                //}
+
                 this.Hide();
                 Main_Menu MainmenuInterface = new Main_Menu();
                 MainmenuInterface.ShowDialog();
+                //string Username = UsernameTextBox.Text;
+                //string Password = PasswordTextBox.Text;
             }
 
             else
             {
                 incorrectLbl.Show();
             }
+
+            ////create a SqlConnection
+
+
+            ////Create a database reader
+            //databaseConn.Open();
+
+            ////create a new SqlParameter
+            ////                        your username textbox ↓    
+            //SQLiteParameter customParm = new SQLiteParameter("@username", UsernameTextBox.Text);
+
+            ////                     your username column ↓    
+            //string sql = "select * from LoginTable where UsernameStaff=@username";
+            //SQLiteCommand customCmd = new SQLiteCommand(sql, databaseConn);
+            //SQLiteDataReader dataRead = customCmd.ExecuteReader();
+
+            //while (dataRead.Read())
+            //{
+            //    //reads permission column
+            //    PublicVariables.permission = Convert.ToBoolean(dataRead["permission"]);
+            //}
+
+            databaseConn.Close();
         }
 
         private void ExitButton_Click(object sender, EventArgs e)

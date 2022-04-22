@@ -65,7 +65,15 @@ namespace NEA
 
         private void AdminSettingsButton_Click(object sender, EventArgs e)
         {
+            if (PublicVariables.permission == true)
+            {
+                adminBtn.Visible = true;
+            }
 
+            else
+            {
+                adminBtn.Visible = false;
+            }
         }
 
         private void LogOutButton_Click(object sender, EventArgs e)
