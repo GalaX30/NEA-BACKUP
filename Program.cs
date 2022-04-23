@@ -37,6 +37,7 @@ namespace NEA
 
             LoginWindow LoginInterface = new LoginWindow();
             LoginInterface.ShowDialog();
+
             //Main_Menu MainmenuInterface = new Main_Menu();
             //MainmenuInterface.ShowDialog();
             //Auto_Assign_Menu AutoAssignWindow = new Auto_Assign_Menu();

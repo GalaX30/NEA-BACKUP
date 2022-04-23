@@ -13,11 +13,15 @@ namespace NEA
 {
     public partial class LoginWindow : Form
     {
-        SQLiteConnection databaseConn = new SQLiteConnection("Data Source = StaffDatabaseComplete.db");
+        //SQLiteConnection databaseConn = new SQLiteConnection("Data Source = StaffDatabaseComplete.db");
+        SQLiteConnection con, con2;
+        SQLiteCommand cmd, cmd2;
+        SQLiteDataReader dr, dr2;
 
         public LoginWindow()
         {
             InitializeComponent();
+            con = new SQLiteConnection("Data Source = StaffDatabaseComplete.db");
         }
 
         private void LoginWindow_Load(object sender, EventArgs e)
@@ -37,52 +41,59 @@ namespace NEA
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string query = "Select * from LoginTable where UsernameStaff = '" + UsernameTextBox.Text.Trim() + "' and PasswordStaff = '" + PasswordTextBox.Text.Trim() + "'";
-            SQLiteDataAdapter adapter = new SQLiteDataAdapter(query, databaseConn);
-            DataTable data = new DataTable();
+            //string username = UsernameTextBox.Text;
+            //string password = PasswordTextBox.Text;
 
-            adapter.Fill(data);
+            cmd = new SQLiteCommand();
+            con.Open();
+            cmd.Connection = con;
+            cmd.CommandText = "SELECT * FROM LoginTable where UsernameStaff='" + UsernameTextBox.Text + "' AND PasswordStaff='" + PasswordTextBox.Text + "'";
+            dr = cmd.ExecuteReader();
 
-            if (data.Rows.Count == 1)
+            if (dr.Read())
             {
+                //cmd2 = new SQLiteCommand();
+                //con2.Open();
+                //cmd2.Connection = con2;
+                //cmd2.CommandText = "SELECT PermissionLevel From LoginTable WHERE UsernameStaff ='" + UsernameTextBox.Text + "'";
+                //dr2 = cmd2.ExecuteReader();
 
-                //SQLiteCommand checkPerm = new SQLiteCommand("SELECT * FROM LoginTable WHERE (PermissionLevel = @user)", databaseConn);
-                //checkPerm.Parameters.AddWithValue("@user", txtBox_UserName.Text);
-                //string staffPerm = (string)checkPerm.ExecuteScalar();
-
-                //if (staffPerm == "Admin")
+                //if (dr2.Read())
                 //{
-                //    PublicVariables.permission = true;
+                //    bool isAdmin = (bool)cmd2.ExecuteScalar();
+                //
+                //    if (isAdmin)
+                //    {
+                //        PublicVariables.Permission = true;
+                //    }
+
+                //    else
+                //    {
+                //        PublicVariables.Permission = false;
+                //    }
+                //}
+
+                //con2.Close();
+
+
+
+
+
+                //string admin = dr["PermissionLevel"].ToString();
+
+                //if (admin == "Admin")
+                //{
+                //    PublicVariables.Permission = true;
                 //}
 
                 //else
                 //{
-                //    PublicVariables.permission = false;
-                //}
-
-                ////Create a database reader
-                //databaseConn.Open();
-
-                ////create a new SqlParameter
-                ////                        your username textbox ↓    
-                //SQLiteParameter customParm = new SQLiteParameter("@username", UsernameTextBox.Text);
-
-                ////                     your username column ↓    
-                //string sql = "select * from LoginTable where UsernameStaff=@username";
-                //SQLiteCommand customCmd = new SQLiteCommand(sql, databaseConn);
-                //SQLiteDataReader dataRead = customCmd.ExecuteReader();
-
-                //while (dataRead.Read())
-                //{
-                //    //reads permission column
-                //    PublicVariables.permission = Convert.ToBoolean(dataRead["permission"]);
+                //    PublicVariables.Permission = false;
                 //}
 
                 this.Hide();
                 Main_Menu MainmenuInterface = new Main_Menu();
                 MainmenuInterface.ShowDialog();
-                //string Username = UsernameTextBox.Text;
-                //string Password = PasswordTextBox.Text;
             }
 
             else
@@ -90,28 +101,7 @@ namespace NEA
                 incorrectLbl.Show();
             }
 
-            ////create a SqlConnection
-
-
-            ////Create a database reader
-            //databaseConn.Open();
-
-            ////create a new SqlParameter
-            ////                        your username textbox ↓    
-            //SQLiteParameter customParm = new SQLiteParameter("@username", UsernameTextBox.Text);
-
-            ////                     your username column ↓    
-            //string sql = "select * from LoginTable where UsernameStaff=@username";
-            //SQLiteCommand customCmd = new SQLiteCommand(sql, databaseConn);
-            //SQLiteDataReader dataRead = customCmd.ExecuteReader();
-
-            //while (dataRead.Read())
-            //{
-            //    //reads permission column
-            //    PublicVariables.permission = Convert.ToBoolean(dataRead["permission"]);
-            //}
-
-            databaseConn.Close();
+            con.Close();
         }
 
         private void ExitButton_Click(object sender, EventArgs e)

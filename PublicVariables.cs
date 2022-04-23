@@ -8,6 +8,12 @@ namespace NEA
 {
     class PublicVariables
     {
-        public static bool permission = true;
+        public static bool _permission = false;
+
+        public static bool Permission
+        {
+            get { return _permission; }
+            set { _permission = value; }
+        }
     }
 }
