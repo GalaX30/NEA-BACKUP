@@ -170,6 +170,7 @@
             this.idTxt.Name = "idTxt";
             this.idTxt.Size = new System.Drawing.Size(148, 25);
             this.idTxt.TabIndex = 107;
+            this.idTxt.Visible = false;
             this.idTxt.TextChanged += new System.EventHandler(this.idTxt_TextChanged_1);
             // 
             // lastnameLbl

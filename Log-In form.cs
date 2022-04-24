@@ -47,7 +47,7 @@ namespace NEA
             cmd = new SQLiteCommand();
             con.Open();
             cmd.Connection = con;
-            cmd.CommandText = "SELECT * FROM LoginTable where UsernameStaff='" + UsernameTextBox.Text + "' AND PasswordStaff='" + PasswordTextBox.Text + "'";
+            cmd.CommandText = "SELECT * FROM StaffTable where UsernameStaff='" + UsernameTextBox.Text + "' AND PasswordStaff='" + PasswordTextBox.Text + "'";
             dr = cmd.ExecuteReader();
 
             if (dr.Read())
@@ -55,7 +55,7 @@ namespace NEA
                 //cmd2 = new SQLiteCommand();
                 //con2.Open();
                 //cmd2.Connection = con2;
-                //cmd2.CommandText = "SELECT PermissionLevel From LoginTable WHERE UsernameStaff ='" + UsernameTextBox.Text + "'";
+                //cmd2.CommandText = "SELECT PermissionLevel From StaffTable WHERE UsernameStaff ='" + UsernameTextBox.Text + "'";
                 //dr2 = cmd2.ExecuteReader();
 
                 //if (dr2.Read())

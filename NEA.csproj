@@ -85,6 +85,7 @@
       <DependentUpon>Database Details Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Database.cs" />
+    <Compile Include="Get Values Staff.cs" />
     <Compile Include="Log-In form.cs">
       <SubType>Form</SubType>
     </Compile>

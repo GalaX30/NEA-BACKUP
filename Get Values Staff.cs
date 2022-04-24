@@ -1,29 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SQLite;
-
 
 namespace NEA
 {
-    class Database
+    class Get_Values_Staff
     {
-        public SQLiteConnection dataConn;
-
-        //Constructor
-        public Database()
-        {
-            //SQLiteConnection Class provides methods for reading the result of a command executed against a SQLite database
-            dataConn = new SQLiteConnection("Data Source = StaffDatabaseComplete.db");
-        }
-
-
         //public string displaystaffID;
         //public string displaystaffFirstname;
         //public string displaystaffLastname;
@@ -36,6 +21,7 @@ namespace NEA
         //public string displaystaffPassword;
         //public string displaystaffPermission;
         //public string displaystaffFloorID;
+
         //void getValuesStaff()
         //{
         //    SQLiteConnection databaseConnection = new SQLiteConnection("Data Source = StaffDatabaseComplete.db");
@@ -76,17 +62,6 @@ namespace NEA
         //    }
 
         //    databaseConnection.Close();
-        //}
-
-        //public void insert()
-        //{
-        //    myConn.Open();
-        //    string insert = @"INSERT INTO customer(custfname,custlname,dob)
-        //                      VALUES('Jyoti','Patel','2006-09-21');";
-
-        //    SQLiteCommand insertInto = new SQLiteCommand(insert, myConn);
-        //    insertInto.ExecuteNonQuery();
-        //    myConn.Close();
         //}
     }
 }

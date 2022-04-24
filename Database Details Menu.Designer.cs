@@ -52,6 +52,7 @@
             this.infoLbl10.TabIndex = 65;
             this.infoLbl10.Text = "Info10";
             this.infoLbl10.Visible = false;
+            this.infoLbl10.Click += new System.EventHandler(this.infoLbl10_Click);
             // 
             // infoLbl9
             // 
@@ -64,6 +65,7 @@
             this.infoLbl9.TabIndex = 64;
             this.infoLbl9.Text = "Info9";
             this.infoLbl9.Visible = false;
+            this.infoLbl9.Click += new System.EventHandler(this.infoLbl9_Click);
             // 
             // infoLbl8
             // 
@@ -76,6 +78,7 @@
             this.infoLbl8.TabIndex = 63;
             this.infoLbl8.Text = "Info8";
             this.infoLbl8.Visible = false;
+            this.infoLbl8.Click += new System.EventHandler(this.infoLbl8_Click);
             // 
             // infoLbl7
             // 
@@ -88,6 +91,7 @@
             this.infoLbl7.TabIndex = 62;
             this.infoLbl7.Text = "Info7";
             this.infoLbl7.Visible = false;
+            this.infoLbl7.Click += new System.EventHandler(this.infoLbl7_Click);
             // 
             // infoLbl6
             // 
@@ -100,6 +104,7 @@
             this.infoLbl6.TabIndex = 61;
             this.infoLbl6.Text = "Info6";
             this.infoLbl6.Visible = false;
+            this.infoLbl6.Click += new System.EventHandler(this.infoLbl6_Click);
             // 
             // infoLbl5
             // 
@@ -112,6 +117,7 @@
             this.infoLbl5.TabIndex = 60;
             this.infoLbl5.Text = "Info5";
             this.infoLbl5.Visible = false;
+            this.infoLbl5.Click += new System.EventHandler(this.infoLbl5_Click);
             // 
             // infoLbl4
             // 
@@ -124,6 +130,7 @@
             this.infoLbl4.TabIndex = 59;
             this.infoLbl4.Text = "Info4";
             this.infoLbl4.Visible = false;
+            this.infoLbl4.Click += new System.EventHandler(this.infoLbl4_Click);
             // 
             // infoLbl3
             // 
@@ -136,6 +143,7 @@
             this.infoLbl3.TabIndex = 58;
             this.infoLbl3.Text = "Info3";
             this.infoLbl3.Visible = false;
+            this.infoLbl3.Click += new System.EventHandler(this.infoLbl3_Click);
             // 
             // infoLbl2
             // 
@@ -148,6 +156,7 @@
             this.infoLbl2.TabIndex = 57;
             this.infoLbl2.Text = "Info2";
             this.infoLbl2.Visible = false;
+            this.infoLbl2.Click += new System.EventHandler(this.infoLbl2_Click);
             // 
             // infoLbl1
             // 
@@ -159,7 +168,7 @@
             this.infoLbl1.Size = new System.Drawing.Size(47, 20);
             this.infoLbl1.TabIndex = 56;
             this.infoLbl1.Text = "Info1";
-            this.infoLbl1.Visible = false;
+            this.infoLbl1.Click += new System.EventHandler(this.infoLbl1_Click);
             // 
             // itemLbl
             // 
@@ -172,6 +181,7 @@
             this.itemLbl.TabIndex = 55;
             this.itemLbl.Text = "Item";
             this.itemLbl.Visible = false;
+            this.itemLbl.Click += new System.EventHandler(this.itemLbl_Click);
             // 
             // Database_Details_Menu
             // 
@@ -193,6 +203,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Database_Details_Menu";
             this.Text = "Database_Details_Menu";
+            this.Load += new System.EventHandler(this.Database_Details_Menu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
