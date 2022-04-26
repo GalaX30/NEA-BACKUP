@@ -415,7 +415,10 @@ namespace NEA
         private void okBtn_Click(object sender, EventArgs e)
         {
             Staff staff = new Staff();
-            staff = Staff.displayStaffInfo(databaseList.GetItemText(databaseList.SelectedIndex));
+            staff = Staff.displayStaffInfo(databaseList.GetItemText(databaseList.SelectedIndex.ToString()));
+
+            Database_Details_Menu DataLabels = new Database_Details_Menu(staff);
+            DataLabels.ShowDialog();
 
 
 
@@ -511,9 +514,6 @@ namespace NEA
             ////////////////this.idLbl.Text += displaystaffID;
             //////////////databaseConnection.Close();
             ////////////////idTxt.Text = (displaystaffID);
-
-            Database_Details_Menu DataLabels = new Database_Details_Menu(staff);
-            DataLabels.ShowDialog();
 
 
 

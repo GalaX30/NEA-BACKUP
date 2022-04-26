@@ -22,7 +22,7 @@ namespace NEA
         private void Database_Details_Menu_Load(object sender, EventArgs e)
         {
             //infoLbl1.Visible = true;
-            infoLbl1.Text = CurrentStaff.getdisplaystaffID().ToString();
+            infoLbl1.Text = (" Testing if this works: " + CurrentStaff.getdisplaystaffID().ToString());
         }
 
         private void itemLbl_Click(object sender, EventArgs e)
