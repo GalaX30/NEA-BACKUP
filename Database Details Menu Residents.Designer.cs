@@ -1,6 +1,6 @@
 ﻿namespace NEA
 {
-    partial class Database_Details_Menu
+    partial class Database_Details_Menu_Residents
     {
         /// <summary>
         /// Required designer variable.
@@ -49,7 +49,7 @@
             this.infoLbl10.Location = new System.Drawing.Point(42, 370);
             this.infoLbl10.Name = "infoLbl10";
             this.infoLbl10.Size = new System.Drawing.Size(56, 20);
-            this.infoLbl10.TabIndex = 65;
+            this.infoLbl10.TabIndex = 76;
             this.infoLbl10.Text = "Info10";
             this.infoLbl10.Click += new System.EventHandler(this.infoLbl10_Click);
             // 
@@ -61,7 +61,7 @@
             this.infoLbl9.Location = new System.Drawing.Point(42, 340);
             this.infoLbl9.Name = "infoLbl9";
             this.infoLbl9.Size = new System.Drawing.Size(47, 20);
-            this.infoLbl9.TabIndex = 64;
+            this.infoLbl9.TabIndex = 75;
             this.infoLbl9.Text = "Info9";
             this.infoLbl9.Click += new System.EventHandler(this.infoLbl9_Click);
             // 
@@ -73,7 +73,7 @@
             this.infoLbl8.Location = new System.Drawing.Point(42, 310);
             this.infoLbl8.Name = "infoLbl8";
             this.infoLbl8.Size = new System.Drawing.Size(47, 20);
-            this.infoLbl8.TabIndex = 63;
+            this.infoLbl8.TabIndex = 74;
             this.infoLbl8.Text = "Info8";
             this.infoLbl8.Click += new System.EventHandler(this.infoLbl8_Click);
             // 
@@ -85,7 +85,7 @@
             this.infoLbl7.Location = new System.Drawing.Point(42, 280);
             this.infoLbl7.Name = "infoLbl7";
             this.infoLbl7.Size = new System.Drawing.Size(47, 20);
-            this.infoLbl7.TabIndex = 62;
+            this.infoLbl7.TabIndex = 73;
             this.infoLbl7.Text = "Info7";
             this.infoLbl7.Click += new System.EventHandler(this.infoLbl7_Click);
             // 
@@ -97,7 +97,7 @@
             this.infoLbl6.Location = new System.Drawing.Point(42, 250);
             this.infoLbl6.Name = "infoLbl6";
             this.infoLbl6.Size = new System.Drawing.Size(47, 20);
-            this.infoLbl6.TabIndex = 61;
+            this.infoLbl6.TabIndex = 72;
             this.infoLbl6.Text = "Info6";
             this.infoLbl6.Click += new System.EventHandler(this.infoLbl6_Click);
             // 
@@ -109,7 +109,7 @@
             this.infoLbl5.Location = new System.Drawing.Point(42, 220);
             this.infoLbl5.Name = "infoLbl5";
             this.infoLbl5.Size = new System.Drawing.Size(47, 20);
-            this.infoLbl5.TabIndex = 60;
+            this.infoLbl5.TabIndex = 71;
             this.infoLbl5.Text = "Info5";
             this.infoLbl5.Click += new System.EventHandler(this.infoLbl5_Click);
             // 
@@ -121,7 +121,7 @@
             this.infoLbl4.Location = new System.Drawing.Point(42, 190);
             this.infoLbl4.Name = "infoLbl4";
             this.infoLbl4.Size = new System.Drawing.Size(47, 20);
-            this.infoLbl4.TabIndex = 59;
+            this.infoLbl4.TabIndex = 70;
             this.infoLbl4.Text = "Info4";
             this.infoLbl4.Click += new System.EventHandler(this.infoLbl4_Click);
             // 
@@ -133,7 +133,7 @@
             this.infoLbl3.Location = new System.Drawing.Point(42, 160);
             this.infoLbl3.Name = "infoLbl3";
             this.infoLbl3.Size = new System.Drawing.Size(47, 20);
-            this.infoLbl3.TabIndex = 58;
+            this.infoLbl3.TabIndex = 69;
             this.infoLbl3.Text = "Info3";
             this.infoLbl3.Click += new System.EventHandler(this.infoLbl3_Click);
             // 
@@ -145,7 +145,7 @@
             this.infoLbl2.Location = new System.Drawing.Point(42, 130);
             this.infoLbl2.Name = "infoLbl2";
             this.infoLbl2.Size = new System.Drawing.Size(47, 20);
-            this.infoLbl2.TabIndex = 57;
+            this.infoLbl2.TabIndex = 68;
             this.infoLbl2.Text = "Info2";
             this.infoLbl2.Click += new System.EventHandler(this.infoLbl2_Click);
             // 
@@ -157,7 +157,7 @@
             this.infoLbl1.Location = new System.Drawing.Point(42, 100);
             this.infoLbl1.Name = "infoLbl1";
             this.infoLbl1.Size = new System.Drawing.Size(47, 20);
-            this.infoLbl1.TabIndex = 56;
+            this.infoLbl1.TabIndex = 67;
             this.infoLbl1.Text = "Info1";
             this.infoLbl1.Click += new System.EventHandler(this.infoLbl1_Click);
             // 
@@ -169,11 +169,11 @@
             this.itemLbl.Location = new System.Drawing.Point(39, 33);
             this.itemLbl.Name = "itemLbl";
             this.itemLbl.Size = new System.Drawing.Size(78, 38);
-            this.itemLbl.TabIndex = 55;
+            this.itemLbl.TabIndex = 66;
             this.itemLbl.Text = "Item";
             this.itemLbl.Click += new System.EventHandler(this.itemLbl_Click);
             // 
-            // Database_Details_Menu
+            // Database_Details_Menu_Residents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -191,9 +191,10 @@
             this.Controls.Add(this.infoLbl1);
             this.Controls.Add(this.itemLbl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "Database_Details_Menu";
-            this.Text = "AlfaRota";
-            this.Load += new System.EventHandler(this.Database_Details_Menu_Load);
+            this.Name = "Database_Details_Menu_Residents";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Database_Details_Menu_Residents";
+            this.Load += new System.EventHandler(this.Database_Details_Menu_Residents_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

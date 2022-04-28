@@ -15,265 +15,39 @@ namespace NEA
     public partial class View_Database_Menu_Staff : Form
     {
         SQLiteConnection con = new SQLiteConnection("Data Source = StaffDatabaseComplete.db");
-        SQLiteCommand cmd;
-        SQLiteDataReader dr;
 
-        //Staff SelectedStaff;
         public View_Database_Menu_Staff(/*Staff staff*/)
         {
-            //SelectedStaff = new Staff(staff);
             InitializeComponent();
         }
 
-        //public string ID;
-        //public string displayID;
-        //public string displaystaffID;
-        //public string displaystaffFirstname;
-        //public string displaystaffLastname;
-        //public string displaystaffGender;
-        //public string displaystaffFloor1;
-        //public string displaystaffFloor2;
-        //public string displaystaffFloor3;
-        //public string displaystaffPresent;
-        //public string displaystaffUsername;
-        //public string displaystaffPassword;
-        //public string displaystaffPermission;
-        //public string displaystaffFloorID;
-
-        //void getValuesStaff()
-        //{
-        //    SQLiteConnection databaseConnection = new SQLiteConnection("Data Source = StaffDatabaseComplete.db");
-        //    SQLiteCommand customCommand;
-        //    SQLiteDataReader dataReader;
-
-        //    customCommand = new SQLiteCommand();
-        //    databaseConnection.Open();
-        //    customCommand.Connection = databaseConnection;
-        //    customCommand.CommandText = "select * from StaffTable WHERE FirstName = '" + a + "'";
-        //    dataReader = customCommand.ExecuteReader();
-
-        //    while (dataReader.Read())
-        //    {
-        //        displaystaffID = (dataReader["StaffID"]).ToString();
-        //        displaystaffFirstname = (dataReader["FirstName"]).ToString();
-        //        displaystaffLastname = (dataReader["LastName"]).ToString();
-        //        displaystaffGender = (dataReader["Gender"]).ToString();
-        //        displaystaffFloor1 = (dataReader["QualifiedForFloor1"]).ToString();
-        //        displaystaffFloor2 = (dataReader["QualifiedForFloor2"]).ToString();
-        //        displaystaffFloor3 = (dataReader["QualifiedForFloor3"]).ToString();
-        //        displaystaffPresent = (dataReader["CurrentlyPresent"]).ToString();
-        //        displaystaffUsername = (dataReader["UsernameStaff"]).ToString();
-        //        displaystaffPassword = (dataReader["PasswordStaff"]).ToString();
-        //        displaystaffPermission = (dataReader["PermissionLevel"]).ToString();
-
-        //        if (displaystaffPermission == "1")
-        //        {
-        //            displaystaffPermission = "Admin";
-        //        }
-
-        //        else
-        //        {
-        //            displaystaffPermission = "Regular";
-        //        }
-
-        //        displaystaffFloorID = (dataReader["FloorIDStaff"]).ToString();
-        //    }
-
-        //    databaseConnection.Close();
-        //}
-
-        //void fill_textbox()
-        //{
-        //    SQLiteConnection databaseConnection = new SQLiteConnection("Data Source = StaffDatabaseComplete.db");
-        //    SQLiteCommand customCommand;
-        //    SQLiteDataReader dataReader;
-
-        //    customCommand = new SQLiteCommand();
-        //    databaseConnection.Open();
-        //    customCommand.Connection = databaseConnection;
-        //    customCommand.CommandText = "select * from StaffTable WHERE StaffFirstname ='" + fill_listbox(b) + "'";
-        //    dataReader = customCommand.ExecuteReader();
-
-        //    while (dataReader.Read())
-        //    {
-        //        displayID = (dataReader["StaffID"]).ToString();
-        //        idTxt.Text = displayID;
-        //    }
-
-        //    databaseConnection.Close();
-        //}
-
-        //public static displayStaffInfo (GetDataStaff, string firstname)
-        //{
-        //    SQLiteConnection databaseConnection = new SQLiteConnection("Data Source = StaffDatabaseComplete.db");
-        //    SQLiteCommand customCommand;
-        //    SQLiteDataReader dataReader;
-        //    List<GetDataStaff> StaffInfo = new List<GetDataStaff>();
-
-        //    customCommand = new SQLiteCommand();
-        //    databaseConnection.Open();
-        //    customCommand.Connection = databaseConnection;
-        //    customCommand.CommandText = "select * from StaffTable WHERE FirstName ='" + databaseList.SelectedIndex.ToString() + "'";
-        //    dataReader = customCommand.ExecuteReader();
-
-        //    while (dataReader.Read())
-        //    {
-        //        GetDataStaff SelectedStaff = new GetDataStaff();
-
-        //        //displayValues.displaystaffID = dataReader.GetString(dataReader.GetOrdinal("StaffID"));
-        //        SelectedStaff._displaystaffID = dataReader["StaffID"];
-        //        SelectedStaff.displaystaffFirstname = dataReader["FirstName"];
-        //        SelectedStaff.displaystaffLastname = dataReader["LastName"];
-        //        SelectedStaff.displaystaffGender = dataReader["Gender"];
-        //        SelectedStaff.displaystaffFloor1 = dataReader["QualifiedForFloor1"];
-        //        SelectedStaff.displaystaffFloor2 = dataReader["QualifiedForFloor2"];
-        //        SelectedStaff.displaystaffFloor3 = dataReader["QualifiedForFloor3"];
-        //        SelectedStaff.displaystaffPresent = dataReader["CurrentlyPresent"];
-        //        SelectedStaff.displaystaffUsername = dataReader["UsernameStaff"];
-        //        SelectedStaff.displaystaffPassword = dataReader["PasswordStaff"];
-        //        SelectedStaff.displaystaffPermission = dataReader["PermissionLevel"];
-
-        //        if (SelectedStaff.displaystaffPermission == 1)
-        //        {
-        //            SelectedStaff.displaystaffPermission = "Admin";
-        //        }
-
-        //        else
-        //        {
-        //            SelectedStaff.displaystaffPermission = "Regular";
-        //        }
-
-        //        SelectedStaff.displaystaffFloorID = dataReader["FloorIDStaff"];
-        //    }
-
-        //    databaseConnection.Close();
-        //}
-
-
-        void fill_listbox2(string a, string b)
+        void fill_listbox()
         {
-            SQLiteConnection databaseConnection = new SQLiteConnection("Data Source = StaffDatabaseComplete.db");
-            SQLiteCommand customCommand;
-            SQLiteDataReader dataReader;
-
-            databaseList.Items.Clear();
-            customCommand = new SQLiteCommand();
-            databaseConnection.Open();
-            customCommand.Connection = databaseConnection;
-            customCommand.CommandText = "select * from " + a;
-            dataReader = customCommand.ExecuteReader();
-
-            while (dataReader.Read())
+            List<Staff> Slist = Staff.getallstaff();
+            foreach (Staff s in Slist)
             {
-                databaseList.Items.Add(dataReader[b]);
+                int ID = s.getdisplaystaffID();
+                string First = s.getdisplaystaffFirstName();
+                string Last = s.getdisplaystaffLastName();
+
+                string entry = ID.ToString() + " " + First + " " + Last;
+                databaseList.Items.Add(entry);
             }
-
-            databaseConnection.Close();
         }
-
-        //void fill_listbox(string a, string b, string c)
-        //{
-        //    SQLiteConnection databaseConnection = new SQLiteConnection("Data Source = StaffDatabaseComplete.db");
-        //    SQLiteCommand customCommand;
-        //    SQLiteDataReader dataReader;
-
-        //    databaseList.Items.Clear();
-        //    customCommand = new SQLiteCommand();
-        //    databaseConnection.Open();
-        //    customCommand.Connection = databaseConnection;
-        //    customCommand.CommandText = "select * from " + a;
-        //    dataReader = customCommand.ExecuteReader();
-
-        //    while (dataReader.Read())
-        //    {
-        //        databaseList.Items.Add(dataReader[b] + " " + dataReader[c]);
-        //    }
-
-        //    databaseConnection.Close();
-        //}
 
         private void View_Database_Menu_Load(object sender, EventArgs e)
         {
-            //fill_listbox("StaffTable", "Firstname", "Lastname");
-
-            fill_listbox2("StaffTable", "Firstname");
+            fill_listbox();
         }
 
         private void databaseList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //ID = databaseList.Items[databaseList.SelectedIndex].ToString();
-
-            //SQLiteConnection databaseConnection = new SQLiteConnection("Data Source = StaffDatabaseComplete.db");
-            //SQLiteCommand customCommand;
-            //SQLiteDataReader dataReader;
-
-            //customCommand = new SQLiteCommand();
-            //databaseConnection.Open();
-            //customCommand.Connection = databaseConnection;
-            //customCommand.CommandText = "select * from StaffTable WHERE StaffID = '" + ID + "'";
-            //dataReader = customCommand.ExecuteReader();
-
-            //while (dataReader.Read())
-            //{
-            //    idLbl.Text = ("ID: " + dataReader[ID]);
-            //}
-            //idLbl.Visible = false;
-            //idLbl.Visible = true;
-            
-            //databaseConnection.Close();
-
-
-
-
-
-            //if (databaseList.SelectedIndex == 0 || databaseList.SelectedIndex < databaseList.Items.Count - 1)
-            //{
-            //    databaseList.SelectedIndex = databaseList.SelectedIndex + 1;
-
-            //    if (databaseList.SelectedItems.Contains("plant"))
-            //    {
-            //        infoLbl1.Text = "flowers";
-            //    }
-
-            //    else if (databaseList.SelectedItems.Contains("sugar"))
-            //    {
-            //        infoLbl1.Text = "Sweets";
-            //    }
-
-            //    else if (databaseList.SelectedItems.Contains("eyes"))
-            //    {
-            //        infoLbl1.Text = "face";
-            //    }
-
-            //}
-
-
-
-            //foreach (con li in databaseList.Items)
-            //{
-            //    if (li.Selected)
-            //    {
-            //        infoLbl1.Text = li.Text.ToString();
-            //    }
-            //}
         }
 
         private void staffBtn_Click(object sender, EventArgs e)
         {
-            //fill_listbox("StaffTable", "Firstname", "Lastname");
-
-            fill_listbox2("StaffTable", "Firstname");
-            //databaseList.Items.Clear();
-            //cmd = new SQLiteCommand();
-            //con.Open();
-            //cmd.Connection = con;
-            //cmd.CommandText = "select * from StaffTable";
-            //dr = cmd.ExecuteReader();
-            //while (dr.Read())
-            //{
-            //    databaseList.Items.Add(dr["Firstname"] + " " + dr["Lastname"]);
-            //}
-            //con.Close();
+            databaseList.Items.Clear();
+            fill_listbox();
         }
 
         private void backBtn_Click(object sender, EventArgs e)
@@ -292,7 +66,8 @@ namespace NEA
             if (sorted == true)
             {
                 databaseList.Sorted = true;
-                databaseList.Refresh();
+                databaseList.Items.Clear();
+                fill_listbox();
             }
 
             else
@@ -414,121 +189,14 @@ namespace NEA
 
         private void okBtn_Click(object sender, EventArgs e)
         {
-            Staff staff = new Staff();
-            staff = Staff.displayStaffInfo(databaseList.GetItemText(databaseList.SelectedIndex.ToString()));
+            string selected = databaseList.Items[databaseList.SelectedIndex].ToString();
+            int selID = selected.IndexOf(" ");
+            string staffid = selected.Substring(0, selID);
+            int ID = Convert.ToInt32(staffid);
+            Staff s = new Staff(ID);
 
-            Database_Details_Menu DataLabels = new Database_Details_Menu(staff);
+            Database_Details_Menu DataLabels = new Database_Details_Menu(s);
             DataLabels.ShowDialog();
-
-
-
-
-
-
-
-            //SQLiteConnection databaseConnection = new SQLiteConnection("Data Source = StaffDatabaseComplete.db");
-            //SQLiteCommand customCommand;
-            //SQLiteDataReader dataReader;
-
-            //customCommand = new SQLiteCommand();
-            //databaseConnection.Open();
-            //customCommand.Connection = databaseConnection;
-            //customCommand.CommandText = "select * from StaffTable WHERE StaffID = '" + ID + "'";
-            //dataReader = customCommand.ExecuteReader();
-
-            //while (dataReader.Read())
-            //{
-            //    idLbl.Text = ("ID: " + dataReader[ID]);
-            //}
-            //idLbl.Visible = false;
-            //idLbl.Visible = true;
-
-            //databaseConnection.Close();
-
-
-
-
-            //fill_textbox();
-
-            //SQLiteConnection databaseConnection = new SQLiteConnection("Data Source = StaffDatabaseComplete.db");
-            //SQLiteCommand customCommand;
-            //SQLiteDataReader dataReader;
-
-            //idTxt.Text = String.Empty;
-            //customCommand = new SQLiteCommand();
-            //databaseConnection.Open();
-            //customCommand.Connection = databaseConnection;
-            //customCommand.CommandText = "select * from StaffTable WHERE FirstName = '" + displaystaffID + "'";
-            //dataReader = customCommand.ExecuteReader();
-
-            //while (dataReader.Read())
-            //{
-
-            //    idTxt.Text = ("ID: " + dataReader["StaffID"]);
-            //}
-
-            //databaseConnection.Close();
-
-
-
-
-
-
-            //////////////SQLiteConnection databaseConnection = new SQLiteConnection("Data Source = StaffDatabaseComplete.db");
-            //////////////SQLiteCommand customCommand;
-            //////////////SQLiteDataReader dataReader;
-
-            //////////////customCommand = new SQLiteCommand();
-            //////////////databaseConnection.Open();
-            //////////////customCommand.Connection = databaseConnection;
-            //////////////customCommand.CommandText = "select * from StaffTable WHERE FirstName = '" + databaseList.SelectedIndex.ToString() + "'";
-            //////////////dataReader = customCommand.ExecuteReader();
-
-            //////////////while (dataReader.Read())
-            //////////////{
-            //////////////    displayValues.displayID = (dataReader["StaffID"]).ToString();
-            //////////////    displayValues.displaystaffFirstname = (dataReader["FirstName"]).ToString();
-            //////////////    displayValues.displaystaffLastname = (dataReader["LastName"]).ToString();
-            //////////////    displayValues.displaystaffGender = (dataReader["Gender"]).ToString();
-            //////////////    displayValues.displaystaffFloor1 = (dataReader["QualifiedForFloor1"]).ToString();
-            //////////////    displayValues.displaystaffFloor2 = (dataReader["QualifiedForFloor2"]).ToString();
-            //////////////    displayValues.displaystaffFloor3 = (dataReader["QualifiedForFloor3"]).ToString();
-            //////////////    displayValues.displaystaffPresent = (dataReader["CurrentlyPresent"]).ToString();
-            //////////////    displayValues.displaystaffUsername = (dataReader["UsernameStaff"]).ToString();
-            //////////////    displayValues.displaystaffPassword = (dataReader["PasswordStaff"]).ToString();
-            //////////////    displayValues.displaystaffPermission = (dataReader["PermissionLevel"]).ToString();
-
-            //////////////    if (displayValues.displaystaffPermission == "1")
-            //////////////    {
-            //////////////        displayValues.displaystaffPermission = "Admin";
-            //////////////    }
-
-            //////////////    else
-            //////////////    {
-            //////////////        displayValues.displaystaffPermission = "Regular";
-            //////////////    }
-
-            //////////////    displayValues.displaystaffFloorID = (dataReader["FloorIDStaff"]).ToString();
-            //////////////}
-            ////////////////this.idTxt.Visible = true;
-            ////////////////this.idLbl.Text += displaystaffID;
-            //////////////databaseConnection.Close();
-            ////////////////idTxt.Text = (displaystaffID);
-
-
-
-
-            //View_Database_Menu_Staff.DoEvents();
-
-            //string selectedStaff = databaseList.Items[databaseList.SelectedIndex].ToString();
-            ////int dashindex = selectedStaff.IndexOf(" - ");
-            ////string Guestidstring = selectedStaff.Substring(0, dashindex);
-            //int Guestid = Convert.ToInt32(selectedStaff);
-            //Guest g = new Guest(Guestid);
-            //thebp.Setaguest(g);
-            //ManageGuest MG = new ManageGuest(thebp);
-            //this.Hide();
-            //MG.ShowDialog();
         }
     }
 }

@@ -78,6 +78,12 @@
     <Compile Include="Check Floors Menu.Designer.cs">
       <DependentUpon>Check Floors Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Database Details Menu Residents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Database Details Menu Residents.Designer.cs">
+      <DependentUpon>Database Details Menu Residents.cs</DependentUpon>
+    </Compile>
     <Compile Include="Database Details Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,7 +91,6 @@
       <DependentUpon>Database Details Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Database.cs" />
-    <Compile Include="Get Values Staff.cs" />
     <Compile Include="Log-In form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Check Floors Menu.resx">
       <DependentUpon>Check Floors Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Database Details Menu Residents.resx">
+      <DependentUpon>Database Details Menu Residents.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Database Details Menu.resx">
       <DependentUpon>Database Details Menu.cs</DependentUpon>

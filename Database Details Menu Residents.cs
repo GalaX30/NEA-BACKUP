@@ -10,21 +10,20 @@ using System.Windows.Forms;
 
 namespace NEA
 {
-    public partial class Database_Details_Menu : Form
+    public partial class Database_Details_Menu_Residents : Form
     {
-        Staff CurrentStaff;
-        public Database_Details_Menu(Staff stafftest)
+        Resident CurrentResident;
+        public Database_Details_Menu_Residents(Resident residenttest)
         {
-            CurrentStaff = stafftest;
+            CurrentResident = residenttest;
             InitializeComponent();
         }
 
-        private void Database_Details_Menu_Load(object sender, EventArgs e)
+        private void Database_Details_Menu_Residents_Load(object sender, EventArgs e)
         {
-            //infoLbl1.Visible = true;
-            infoLbl1.Text = ("ID: " + CurrentStaff.getdisplaystaffID());
-            infoLbl2.Text = ("Firstname: " + CurrentStaff.getdisplaystaffFirstName());
-            infoLbl3.Text = ("Lastname: " + CurrentStaff.getdisplaystaffLastName());
+            infoLbl1.Text = ("ID: " + CurrentResident.getdisplayresidentID());
+            infoLbl2.Text = ("Firstname: " + CurrentResident.getdisplayresidentFirstName());
+            infoLbl3.Text = ("Lastname: " + CurrentResident.getdisplayresidentLastName());
         }
 
         private void itemLbl_Click(object sender, EventArgs e)

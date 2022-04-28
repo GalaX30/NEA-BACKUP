@@ -18,34 +18,29 @@ namespace NEA
             InitializeComponent();
         }
 
-        void fill_listbox(string a, string b, string c)
+        void fill_listbox()
         {
-            SQLiteConnection databaseConnection = new SQLiteConnection("Data Source = StaffDatabaseComplete.db");
-            SQLiteCommand customCommand;
-            SQLiteDataReader dataReader;
-
-            databaseList.Items.Clear();
-            customCommand = new SQLiteCommand();
-            databaseConnection.Open();
-            customCommand.Connection = databaseConnection;
-            customCommand.CommandText = "select * from " + a;
-            dataReader = customCommand.ExecuteReader();
-
-            while (dataReader.Read())
+            List<Resident> Rlist = Resident.getallresidents();
+            foreach (Resident s in Rlist)
             {
-                databaseList.Items.Add(dataReader[b] + " " + dataReader[c]);
+                int ID = s.getdisplayresidentID();
+                string First = s.getdisplayresidentFirstName();
+                string Last = s.getdisplayresidentLastName();
+
+                string entry = ID.ToString() + " " + First + " " + Last;
+                databaseList.Items.Add(entry);
             }
-            databaseConnection.Close();
         }
 
         private void View_Database_Menu_Residents_Load(object sender, EventArgs e)
         {
-            fill_listbox("ResidentTable", "Firstname", "Lastname");
+            fill_listbox();
         }
 
         private void refreshBtn_Click(object sender, EventArgs e)
         {
-            fill_listbox("ResidentTable", "Firstname", "Lastname");
+            databaseList.Items.Clear();
+            fill_listbox();
         }
 
         private void idLbl_Click(object sender, EventArgs e)
@@ -133,6 +128,18 @@ namespace NEA
         private void databaseList_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void okBtn_Click(object sender, EventArgs e)
+        {
+            string selected = databaseList.Items[databaseList.SelectedIndex].ToString();
+            int selID = selected.IndexOf(" ");
+            string residentid = selected.Substring(0, selID);
+            int ID = Convert.ToInt32(residentid);
+            Resident x = new Resident(ID);
+
+            Database_Details_Menu_Residents DataLabelsResidents = new Database_Details_Menu_Residents(x);
+            DataLabelsResidents.ShowDialog();
         }
     }
 }

@@ -14,9 +14,9 @@ namespace NEA
     public partial class LoginWindow : Form
     {
         //SQLiteConnection databaseConn = new SQLiteConnection("Data Source = StaffDatabaseComplete.db");
-        SQLiteConnection con, con2;
-        SQLiteCommand cmd, cmd2;
-        SQLiteDataReader dr, dr2;
+        SQLiteConnection con;
+        SQLiteCommand cmd;
+        SQLiteDataReader dr;
 
         public LoginWindow()
         {
@@ -41,9 +41,6 @@ namespace NEA
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //string username = UsernameTextBox.Text;
-            //string password = PasswordTextBox.Text;
-
             cmd = new SQLiteCommand();
             con.Open();
             cmd.Connection = con;
@@ -52,45 +49,6 @@ namespace NEA
 
             if (dr.Read())
             {
-                //cmd2 = new SQLiteCommand();
-                //con2.Open();
-                //cmd2.Connection = con2;
-                //cmd2.CommandText = "SELECT PermissionLevel From StaffTable WHERE UsernameStaff ='" + UsernameTextBox.Text + "'";
-                //dr2 = cmd2.ExecuteReader();
-
-                //if (dr2.Read())
-                //{
-                //    bool isAdmin = (bool)cmd2.ExecuteScalar();
-                //
-                //    if (isAdmin)
-                //    {
-                //        PublicVariables.Permission = true;
-                //    }
-
-                //    else
-                //    {
-                //        PublicVariables.Permission = false;
-                //    }
-                //}
-
-                //con2.Close();
-
-
-
-
-
-                //string admin = dr["PermissionLevel"].ToString();
-
-                //if (admin == "Admin")
-                //{
-                //    PublicVariables.Permission = true;
-                //}
-
-                //else
-                //{
-                //    PublicVariables.Permission = false;
-                //}
-
                 this.Hide();
                 Main_Menu MainmenuInterface = new Main_Menu();
                 MainmenuInterface.ShowDialog();
@@ -124,5 +82,4 @@ namespace NEA
 
         }
     }
-
 }

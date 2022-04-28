@@ -53,6 +53,8 @@ namespace NEA
                 }
             }
 
+            //Staff.displayStaffInfo("Lili");
+
             LoginWindow LoginInterface = new LoginWindow();
             LoginInterface.ShowDialog();
 

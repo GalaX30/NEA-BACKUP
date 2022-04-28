@@ -205,6 +205,7 @@
             this.okBtn.TabIndex = 118;
             this.okBtn.Text = "OK";
             this.okBtn.UseVisualStyleBackColor = false;
+            this.okBtn.Click += new System.EventHandler(this.okBtn_Click);
             // 
             // refreshBtn
             // 
