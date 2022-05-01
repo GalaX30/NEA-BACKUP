@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.infoLbl10 = new System.Windows.Forms.Label();
             this.infoLbl9 = new System.Windows.Forms.Label();
             this.infoLbl8 = new System.Windows.Forms.Label();
             this.infoLbl7 = new System.Windows.Forms.Label();
@@ -40,18 +39,6 @@
             this.infoLbl1 = new System.Windows.Forms.Label();
             this.itemLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // infoLbl10
-            // 
-            this.infoLbl10.AutoSize = true;
-            this.infoLbl10.Font = new System.Drawing.Font("Leelawadee UI", 10.75F, System.Drawing.FontStyle.Bold);
-            this.infoLbl10.ForeColor = System.Drawing.Color.Silver;
-            this.infoLbl10.Location = new System.Drawing.Point(42, 370);
-            this.infoLbl10.Name = "infoLbl10";
-            this.infoLbl10.Size = new System.Drawing.Size(56, 20);
-            this.infoLbl10.TabIndex = 65;
-            this.infoLbl10.Text = "Info10";
-            this.infoLbl10.Click += new System.EventHandler(this.infoLbl10_Click);
             // 
             // infoLbl9
             // 
@@ -178,8 +165,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(358, 434);
-            this.Controls.Add(this.infoLbl10);
+            this.ClientSize = new System.Drawing.Size(358, 404);
             this.Controls.Add(this.infoLbl9);
             this.Controls.Add(this.infoLbl8);
             this.Controls.Add(this.infoLbl7);
@@ -200,8 +186,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label infoLbl10;
         private System.Windows.Forms.Label infoLbl9;
         private System.Windows.Forms.Label infoLbl8;
         private System.Windows.Forms.Label infoLbl7;

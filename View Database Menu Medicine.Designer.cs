@@ -36,12 +36,6 @@
             this.refreshBtn = new System.Windows.Forms.Button();
             this.backBtn = new System.Windows.Forms.Button();
             this.databaseList = new System.Windows.Forms.ListBox();
-            this.ammountTxt = new System.Windows.Forms.TextBox();
-            this.medicationTxt = new System.Windows.Forms.TextBox();
-            this.idTxt = new System.Windows.Forms.TextBox();
-            this.ammountLbl = new System.Windows.Forms.Label();
-            this.medicationLbl = new System.Windows.Forms.Label();
-            this.idLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // okBtn
@@ -89,7 +83,7 @@
             this.filterBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.filterBtn.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.filterBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.filterBtn.Location = new System.Drawing.Point(447, 573);
+            this.filterBtn.Location = new System.Drawing.Point(157, 573);
             this.filterBtn.Margin = new System.Windows.Forms.Padding(4);
             this.filterBtn.Name = "filterBtn";
             this.filterBtn.Size = new System.Drawing.Size(99, 37);
@@ -104,7 +98,7 @@
             this.sortBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.sortBtn.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.sortBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.sortBtn.Location = new System.Drawing.Point(554, 573);
+            this.sortBtn.Location = new System.Drawing.Point(264, 573);
             this.sortBtn.Margin = new System.Windows.Forms.Padding(4);
             this.sortBtn.Name = "sortBtn";
             this.sortBtn.Size = new System.Drawing.Size(99, 37);
@@ -155,80 +149,11 @@
             this.databaseList.TabIndex = 117;
             this.databaseList.SelectedIndexChanged += new System.EventHandler(this.databaseList_SelectedIndexChanged);
             // 
-            // ammountTxt
-            // 
-            this.ammountTxt.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Bold);
-            this.ammountTxt.Location = new System.Drawing.Point(478, 272);
-            this.ammountTxt.Name = "ammountTxt";
-            this.ammountTxt.Size = new System.Drawing.Size(148, 25);
-            this.ammountTxt.TabIndex = 150;
-            this.ammountTxt.TextChanged += new System.EventHandler(this.ammountTxt_TextChanged);
-            // 
-            // medicationTxt
-            // 
-            this.medicationTxt.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Bold);
-            this.medicationTxt.Location = new System.Drawing.Point(478, 241);
-            this.medicationTxt.Name = "medicationTxt";
-            this.medicationTxt.Size = new System.Drawing.Size(148, 25);
-            this.medicationTxt.TabIndex = 149;
-            this.medicationTxt.TextChanged += new System.EventHandler(this.medicationTxt_TextChanged);
-            // 
-            // idTxt
-            // 
-            this.idTxt.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Bold);
-            this.idTxt.Location = new System.Drawing.Point(478, 209);
-            this.idTxt.Name = "idTxt";
-            this.idTxt.Size = new System.Drawing.Size(148, 25);
-            this.idTxt.TabIndex = 148;
-            this.idTxt.TextChanged += new System.EventHandler(this.idTxt_TextChanged);
-            // 
-            // ammountLbl
-            // 
-            this.ammountLbl.AutoSize = true;
-            this.ammountLbl.Font = new System.Drawing.Font("Leelawadee UI", 10.75F, System.Drawing.FontStyle.Bold);
-            this.ammountLbl.ForeColor = System.Drawing.Color.Silver;
-            this.ammountLbl.Location = new System.Drawing.Point(378, 274);
-            this.ammountLbl.Name = "ammountLbl";
-            this.ammountLbl.Size = new System.Drawing.Size(85, 20);
-            this.ammountLbl.TabIndex = 147;
-            this.ammountLbl.Text = "Ammount:";
-            this.ammountLbl.Click += new System.EventHandler(this.ammountLbl_Click);
-            // 
-            // medicationLbl
-            // 
-            this.medicationLbl.AutoSize = true;
-            this.medicationLbl.Font = new System.Drawing.Font("Leelawadee UI", 10.75F, System.Drawing.FontStyle.Bold);
-            this.medicationLbl.ForeColor = System.Drawing.Color.Silver;
-            this.medicationLbl.Location = new System.Drawing.Point(378, 243);
-            this.medicationLbl.Name = "medicationLbl";
-            this.medicationLbl.Size = new System.Drawing.Size(55, 20);
-            this.medicationLbl.TabIndex = 146;
-            this.medicationLbl.Text = "Name:";
-            this.medicationLbl.Click += new System.EventHandler(this.medicationLbl_Click);
-            // 
-            // idLbl
-            // 
-            this.idLbl.AutoSize = true;
-            this.idLbl.Font = new System.Drawing.Font("Leelawadee UI", 10.75F, System.Drawing.FontStyle.Bold);
-            this.idLbl.ForeColor = System.Drawing.Color.Silver;
-            this.idLbl.Location = new System.Drawing.Point(378, 211);
-            this.idLbl.Name = "idLbl";
-            this.idLbl.Size = new System.Drawing.Size(29, 20);
-            this.idLbl.TabIndex = 145;
-            this.idLbl.Text = "ID:";
-            this.idLbl.Click += new System.EventHandler(this.idLbl_Click);
-            // 
             // View_Database_Menu_Medicine
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(666, 623);
-            this.Controls.Add(this.ammountTxt);
-            this.Controls.Add(this.medicationTxt);
-            this.Controls.Add(this.idTxt);
-            this.Controls.Add(this.ammountLbl);
-            this.Controls.Add(this.medicationLbl);
-            this.Controls.Add(this.idLbl);
+            this.ClientSize = new System.Drawing.Size(376, 623);
             this.Controls.Add(this.okBtn);
             this.Controls.Add(this.searchTxt);
             this.Controls.Add(this.searchBtn);
@@ -257,11 +182,5 @@
         private System.Windows.Forms.Button refreshBtn;
         private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.ListBox databaseList;
-        private System.Windows.Forms.TextBox ammountTxt;
-        private System.Windows.Forms.TextBox medicationTxt;
-        private System.Windows.Forms.TextBox idTxt;
-        private System.Windows.Forms.Label ammountLbl;
-        private System.Windows.Forms.Label medicationLbl;
-        private System.Windows.Forms.Label idLbl;
     }
 }

@@ -23,11 +23,10 @@ namespace NEA
             List<Resident> Rlist = Resident.getallresidents();
             foreach (Resident s in Rlist)
             {
-                int ID = s.getdisplayresidentID();
                 string First = s.getdisplayresidentFirstName();
                 string Last = s.getdisplayresidentLastName();
 
-                string entry = ID.ToString() + " " + First + " " + Last;
+                string entry = First.ToString() + " " + Last;
                 databaseList.Items.Add(entry);
             }
         }
@@ -41,81 +40,6 @@ namespace NEA
         {
             databaseList.Items.Clear();
             fill_listbox();
-        }
-
-        private void idLbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void idTxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void firstnameLbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lastnameTxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void floor3Lbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lastnameLbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void genderLbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void genderTxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void firstnameTxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void medicheckTxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void medicheckLbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void prescriptionidLbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void precriptionidTxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void floorLbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void floorTxt_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void backBtn_Click(object sender, EventArgs e)
@@ -133,10 +57,10 @@ namespace NEA
         private void okBtn_Click(object sender, EventArgs e)
         {
             string selected = databaseList.Items[databaseList.SelectedIndex].ToString();
-            int selID = selected.IndexOf(" ");
-            string residentid = selected.Substring(0, selID);
-            int ID = Convert.ToInt32(residentid);
-            Resident x = new Resident(ID);
+            int selFirst = selected.IndexOf(" ");
+            string residentfirst = selected.Substring(0, selFirst);
+            string First = Convert.ToString(residentfirst);
+            Resident x = new Resident(First);
 
             Database_Details_Menu_Residents DataLabelsResidents = new Database_Details_Menu_Residents(x);
             DataLabelsResidents.ShowDialog();

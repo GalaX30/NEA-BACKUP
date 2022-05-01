@@ -36,22 +36,21 @@ namespace NEA
         {
 
             //Linking to the SQL Database
-            Database SignatureDatabase = new Database();
-            string query = @"SELECT * 
-                             FROM StaffTable;";
+            //Database SignatureDatabase = new Database();
+            //string query = "SELECT * FROM StaffTable;";
 
-            SQLiteCommand display = new SQLiteCommand(query, SignatureDatabase.dataConn);
+            //SQLiteCommand display = new SQLiteCommand(query, SignatureDatabase.dataConn);
 
-            //dbObject.insert();
-            SignatureDatabase.dataConn.Open();
-            SQLiteDataReader displayQuery = display.ExecuteReader();
-            if (displayQuery.HasRows)
-            {
-                while (displayQuery.Read())
-                {
-                    Console.WriteLine(displayQuery["FirstName"] + " " + displayQuery["LastName"] + " " + displayQuery["StaffID"]);
-                }
-            }
+            ////dbObject.insert();
+            //SignatureDatabase.dataConn.Open();
+            //SQLiteDataReader displayQuery = display.ExecuteReader();
+            //if (displayQuery.HasRows)
+            //{
+            //    while (displayQuery.Read())
+            //    {
+            //        Console.WriteLine(displayQuery["FirstName"] + " " + displayQuery["LastName"] + " " + displayQuery["StaffID"]);
+            //    }
+            //}
 
             //Staff.displayStaffInfo("Lili");
 

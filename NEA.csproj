@@ -3,12 +3,13 @@
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+	<LangVersion>8.0</LangVersion>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{91CED54D-2421-42B0-A4E2-0E2C4FB901B2}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>NEA</RootNamespace>
     <AssemblyName>NEA</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -29,6 +30,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -77,6 +79,12 @@
     </Compile>
     <Compile Include="Check Floors Menu.Designer.cs">
       <DependentUpon>Check Floors Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Database Details Menu Medication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Database Details Menu Medication.Designer.cs">
+      <DependentUpon>Database Details Menu Medication.cs</DependentUpon>
     </Compile>
     <Compile Include="Database Details Menu Residents.cs">
       <SubType>Form</SubType>
@@ -142,6 +150,9 @@
     <EmbeddedResource Include="Check Floors Menu.resx">
       <DependentUpon>Check Floors Menu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Database Details Menu Medication.resx">
+      <DependentUpon>Database Details Menu Medication.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Database Details Menu Residents.resx">
       <DependentUpon>Database Details Menu Residents.cs</DependentUpon>
     </EmbeddedResource>
@@ -165,6 +176,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="View Database Menu Medicine.resx">
       <DependentUpon>View Database Menu Medicine.cs</DependentUpon>

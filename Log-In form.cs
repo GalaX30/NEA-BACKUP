@@ -14,14 +14,16 @@ namespace NEA
     public partial class LoginWindow : Form
     {
         //SQLiteConnection databaseConn = new SQLiteConnection("Data Source = StaffDatabaseComplete.db");
-        SQLiteConnection con;
-        SQLiteCommand cmd;
-        SQLiteDataReader dr;
+        SQLiteConnection conn, conn2;
+        SQLiteCommand command, command2;
+        SQLiteDataReader dataread, dataread2;
+
 
         public LoginWindow()
         {
             InitializeComponent();
-            con = new SQLiteConnection("Data Source = StaffDatabaseComplete.db");
+            conn = new SQLiteConnection("Data Source = StaffDatabaseComplete.db");
+            conn2 = new SQLiteConnection("Data Source = StaffDatabaseComplete.db");
         }
 
         private void LoginWindow_Load(object sender, EventArgs e)
@@ -41,17 +43,60 @@ namespace NEA
 
         private void button1_Click(object sender, EventArgs e)
         {
-            cmd = new SQLiteCommand();
-            con.Open();
-            cmd.Connection = con;
-            cmd.CommandText = "SELECT * FROM StaffTable where UsernameStaff='" + UsernameTextBox.Text + "' AND PasswordStaff='" + PasswordTextBox.Text + "'";
-            dr = cmd.ExecuteReader();
+            //Staff.getstafflogininfo(UsernameTextBox.Text);
 
-            if (dr.Read())
+            //if (UsernameTextBox.Text == Staff.getdisplaystaffUsername() && PasswordTextBox.Text == Staff.getdisplaystaffPassword())
+            //{
+            //    if (Staff.getdisplaystaffPermission() == "Admin")
+            //    {
+            //        PublicVariables.Permission = true;
+            //        Main_Menu MainmenuInterface = new Main_Menu();
+            //        MainmenuInterface.ShowDialog();
+            //    }
+
+            //    else
+            //    {
+            //        PublicVariables.Permission = false;
+            //        Main_Menu MainmenuInterface = new Main_Menu();
+            //        MainmenuInterface.ShowDialog();
+            //    }
+            //}
+
+            //else
+            //{
+            //    incorrectLbl.Show();
+            //}
+
+
+            command = new SQLiteCommand();
+            conn.Open();
+            command.Connection = conn;
+            command.CommandText = "SELECT * FROM StaffTable where UsernameStaff = '" + UsernameTextBox.Text + "' AND PasswordStaff = '" + PasswordTextBox.Text + "'";
+            dataread = command.ExecuteReader();
+
+            if (dataread.Read())
             {
+                command2 = new SQLiteCommand();
+                conn2.Open();
+                command2.Connection = conn2;
+                command2.CommandText = "SELECT UsernameStaff, PasswordStaff, PermissionLevel FROM StaffTable where UsernameStaff = '" + UsernameTextBox.Text + "' AND PasswordStaff = '" + PasswordTextBox.Text + "' AND PermissionLevel = 'Admin'";
+                dataread2 = command2.ExecuteReader();
+
+                if (dataread2.Read())
+                {
+                    PublicVariables.Permission = true;
+                }
+
+                else
+                {
+                    PublicVariables.Permission = false;
+                }
+
                 this.Hide();
                 Main_Menu MainmenuInterface = new Main_Menu();
                 MainmenuInterface.ShowDialog();
+
+                conn2.Close();
             }
 
             else
@@ -59,7 +104,7 @@ namespace NEA
                 incorrectLbl.Show();
             }
 
-            con.Close();
+            conn.Close();
         }
 
         private void ExitButton_Click(object sender, EventArgs e)

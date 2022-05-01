@@ -14,68 +14,147 @@ namespace NEA
     public partial class Manual_Assign_Menu : Form
     {
         SQLiteConnection databaseConnection = new SQLiteConnection("Data Source = StaffDatabaseComplete.db");
-        SQLiteCommand customCommand;
-        SQLiteDataReader dataReader;
+
         public Manual_Assign_Menu()
         {
             InitializeComponent();
-            //fill_listbox();
         }
 
-        void fill_listbox(string a, string b, string c)
+
+        void fill_listbox()
         {
             staffList.Items.Clear();
-            customCommand = new SQLiteCommand();
-            databaseConnection.Open();
-            customCommand.Connection = databaseConnection;
-            customCommand.CommandText = "select * from " + a;
-            dataReader = customCommand.ExecuteReader();
-            while (dataReader.Read())
+            List<Staff> Rlist = Staff.getallstaff();
+            foreach (Staff r in Rlist)
             {
-                staffList.Items.Add(dataReader[b] + " " + dataReader[c]);
+                int ID = r.getdisplaystaffID();
+                string First = r.getdisplaystaffFirstName();
+                string Last = r.getdisplaystaffLastName();
+                string Gender = r.getdisplaystaffGender();
+                bool Floor1 = r.getdisplaystaffFloor1();
+                bool Floor2 = r.getdisplaystaffFloor2();
+                bool Floor3 = r.getdisplaystaffFloor3();
+                string Present = Convert.ToString(r.getdisplaystaffPresent());
+                if (Present == "True")
+                {
+                    Present = "Present";
+                }
+
+                else
+                {
+                    Present = "Absent";
+                }
+
+                string FloorID = "On floor: " + r.getdisplaystaffFloorID();
+
+                string entry = First + " | " + Last + " | " + Gender + " | " + Present + " | " + FloorID;
+                staffList.Items.Add(entry);
             }
-            databaseConnection.Close();
         }
 
-        //void fill_listbox()
-        //{
-        //    string constring = "Data Source = StaffDatabaseComplete.db";
-        //    string query = "select * from StaffTable where name ='" + staffList.Text + "' ;";
-        //    SQLiteConnection conDataBase = new SQLiteConnection(constring);
-        //    SQLiteCommand cmdDataBase = new SQLiteCommand(query, conDataBase);
-        //    SQLiteDataReader myReader;
 
-        //    try
-        //    {
-        //        conDataBase.Open();
-        //        myReader = cmdDataBase.ExecuteReader();
 
-        //        while (myReader.Read())
-        //        {
-        //            string sName = myReader.GetString("Firstname");
-        //            staffList.Items.Add(sName);
-        //        }
-        //    }
 
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
+
+        public void Update()
+        {
+            SQLiteConnection sqlite_conn;
+            sqlite_conn = CreateConnection();
+
+            string selected = staffList.Items[staffList.SelectedIndex].ToString();
+            int selectedFirst = selected.IndexOf(" ");
+            string staffFirst = selected.Substring(0, selectedFirst);
+            string FirstName = Convert.ToString(staffFirst);
+
+            using var cmd = new SQLiteCommand(sqlite_conn);
+            cmd.CommandText = "UPDATE StaffTable SET FloorIDStaff = @id WHERE FirstName = '" + FirstName + "'";
+
+            cmd.Parameters.AddWithValue("@id", assignTxt.Text);
+
+
+            cmd.Prepare();
+
+            cmd.ExecuteNonQuery();
+
+
+            sqlite_conn.Close();
+
+        }
+
+
+
+
+
+
+        public static SQLiteConnection Connect()
+        {
+            SQLiteConnection sqlite_conn;
+
+
+            var DBconnection = "Data Source = StaffDatabaseComplete.db";
+
+            sqlite_conn = new SQLiteConnection(DBconnection);
+            return sqlite_conn;
+        }
+
+        public static SQLiteConnection CreateConnection()
+        {
+
+            SQLiteConnection sqlite_conn = Connect();
+            try
+            {
+                sqlite_conn.Open();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return sqlite_conn;
+        }
+
+
+
+
 
         private void Manual_Assign_Menu_Load(object sender, EventArgs e)
         {
-
+            fill_listbox();
         }
 
         private void generateBtn_Click(object sender, EventArgs e)
         {
-            fill_listbox("StaffTable", "FirstName", "LastName");
+            fill_listbox();
         }
+
+
 
         private void staffList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string selected = staffList.Items[staffList.SelectedIndex].ToString();
+            int selectedFirst = selected.IndexOf(" ");
+            string staffFirst = selected.Substring(0, selectedFirst);
+            string FirstName = Convert.ToString(staffFirst);
 
+            Staff current = new Staff(FirstName);
+
+            idLbl.Text = "ID: " + current.getdisplaystaffID();
+            idLbl.Update();
+            firstnameLbl.Text = "Firstname: " + current.getdisplaystaffFirstName();
+            firstnameLbl.Update();
+            lastnameLbl.Text = "Lastname: " + current.getdisplaystaffLastName();
+            lastnameLbl.Update();
+            genderLbl.Text = "Gender: " + current.getdisplaystaffGender();
+            genderLbl.Update();
+            floor1Lbl.Text = "Qualified for floor 1: " + current.getdisplaystaffFloor1();
+            floor1Lbl.Update();
+            floor2Lbl.Text = "Qualified for floor 2: " + current.getdisplaystaffFloor2();
+            floor2Lbl.Update();
+            floor3Lbl.Text = "Qualified for floor 3: " + current.getdisplaystaffFloor3();
+            floor3Lbl.Update();
+            presentLbl.Text = "Currently present: " + current.getdisplaystaffPresent();
+            presentLbl.Update();
+            assignTxt.Text = current.getdisplaystaffFloorID();
+            assignTxt.Update();
         }
 
         private void nameLbl_Click(object sender, EventArgs e)
@@ -135,6 +214,11 @@ namespace NEA
 
         private void assignBtn_Click(object sender, EventArgs e)
         {
+
+
+            Update();
+
+
 
         }
 

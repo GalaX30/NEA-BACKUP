@@ -19,57 +19,20 @@ namespace NEA
         }
         void fill_listbox()
         {
-            SQLiteConnection databaseConnection = new SQLiteConnection("Data Source = StaffDatabaseComplete.db");
-            SQLiteCommand customCommand;
-            SQLiteDataReader dataReader;
-
-            databaseList.Items.Clear();
-            customCommand = new SQLiteCommand();
-            databaseConnection.Open();
-            customCommand.Connection = databaseConnection;
-            customCommand.CommandText = "select * from MedicationTable";
-            dataReader = customCommand.ExecuteReader();
-
-            while (dataReader.Read())
+            List<Medication> Mlist = Medication.getallmedication();
+            foreach (Medication s in Mlist)
             {
-                databaseList.Items.Add(dataReader["Medication"]);
+                string MediName = s.getdisplayMedication();
+
+                string entry = MediName.ToString();
+                databaseList.Items.Add(entry);
             }
-            databaseConnection.Close();
         }
 
         private void View_Database_Menu_Medicine_Load(object sender, EventArgs e)
         {
+            databaseList.Items.Clear();
             fill_listbox();
-        }
-
-        private void idLbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void idTxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void medicationLbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void medicationTxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ammountLbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ammountTxt_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void databaseList_SelectedIndexChanged(object sender, EventArgs e)
@@ -79,12 +42,17 @@ namespace NEA
 
         private void refreshBtn_Click(object sender, EventArgs e)
         {
+            databaseList.Items.Clear();
             fill_listbox();
         }
 
         private void okBtn_Click(object sender, EventArgs e)
         {
+            string selected = databaseList.Items[databaseList.SelectedIndex].ToString();
+            Medication m = new Medication(selected);
 
+            Database_Details_Menu_Medication DataLabels = new Database_Details_Menu_Medication(m);
+            DataLabels.ShowDialog();
         }
 
         private void searchBtn_Click(object sender, EventArgs e)

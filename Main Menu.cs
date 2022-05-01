@@ -19,7 +19,15 @@ namespace NEA
 
         private void Main_Menu_Load(object sender, EventArgs e)
         {
+            if (PublicVariables.Permission == true)
+            {
+                adminBtn.Visible = true;
+            }
 
+            else
+            {
+                adminBtn.Visible = false;
+            }
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
@@ -55,11 +63,6 @@ namespace NEA
             CheckFloorsWindow.ShowDialog();
         }
 
-        private void ProfileButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void SignatureLogo_Click(object sender, EventArgs e)
         {
 
@@ -67,15 +70,7 @@ namespace NEA
 
         private void AdminSettingsButton_Click(object sender, EventArgs e)
         {
-            if (PublicVariables.Permission == true)
-            {
-                adminBtn.Visible = true;
-            }
 
-            else
-            {
-                adminBtn.Visible = false;
-            }
         }
 
         private void LogOutButton_Click(object sender, EventArgs e)

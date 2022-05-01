@@ -85,7 +85,7 @@
             this.presentLbl.AutoSize = true;
             this.presentLbl.Font = new System.Drawing.Font("Leelawadee UI", 10.75F, System.Drawing.FontStyle.Bold);
             this.presentLbl.ForeColor = System.Drawing.Color.Silver;
-            this.presentLbl.Location = new System.Drawing.Point(388, 312);
+            this.presentLbl.Location = new System.Drawing.Point(478, 312);
             this.presentLbl.Name = "presentLbl";
             this.presentLbl.Size = new System.Drawing.Size(135, 20);
             this.presentLbl.TabIndex = 72;
@@ -97,7 +97,7 @@
             this.floor3Lbl.AutoSize = true;
             this.floor3Lbl.Font = new System.Drawing.Font("Leelawadee UI", 10.75F, System.Drawing.FontStyle.Bold);
             this.floor3Lbl.ForeColor = System.Drawing.Color.Silver;
-            this.floor3Lbl.Location = new System.Drawing.Point(388, 282);
+            this.floor3Lbl.Location = new System.Drawing.Point(478, 282);
             this.floor3Lbl.Name = "floor3Lbl";
             this.floor3Lbl.Size = new System.Drawing.Size(152, 20);
             this.floor3Lbl.TabIndex = 71;
@@ -109,7 +109,7 @@
             this.floor2Lbl.AutoSize = true;
             this.floor2Lbl.Font = new System.Drawing.Font("Leelawadee UI", 10.75F, System.Drawing.FontStyle.Bold);
             this.floor2Lbl.ForeColor = System.Drawing.Color.Silver;
-            this.floor2Lbl.Location = new System.Drawing.Point(388, 252);
+            this.floor2Lbl.Location = new System.Drawing.Point(478, 252);
             this.floor2Lbl.Name = "floor2Lbl";
             this.floor2Lbl.Size = new System.Drawing.Size(152, 20);
             this.floor2Lbl.TabIndex = 70;
@@ -121,7 +121,7 @@
             this.floor1Lbl.AutoSize = true;
             this.floor1Lbl.Font = new System.Drawing.Font("Leelawadee UI", 10.75F, System.Drawing.FontStyle.Bold);
             this.floor1Lbl.ForeColor = System.Drawing.Color.Silver;
-            this.floor1Lbl.Location = new System.Drawing.Point(388, 222);
+            this.floor1Lbl.Location = new System.Drawing.Point(478, 222);
             this.floor1Lbl.Name = "floor1Lbl";
             this.floor1Lbl.Size = new System.Drawing.Size(152, 20);
             this.floor1Lbl.TabIndex = 69;
@@ -133,7 +133,7 @@
             this.genderLbl.AutoSize = true;
             this.genderLbl.Font = new System.Drawing.Font("Leelawadee UI", 10.75F, System.Drawing.FontStyle.Bold);
             this.genderLbl.ForeColor = System.Drawing.Color.Silver;
-            this.genderLbl.Location = new System.Drawing.Point(388, 192);
+            this.genderLbl.Location = new System.Drawing.Point(478, 192);
             this.genderLbl.Name = "genderLbl";
             this.genderLbl.Size = new System.Drawing.Size(64, 20);
             this.genderLbl.TabIndex = 68;
@@ -145,7 +145,7 @@
             this.lastnameLbl.AutoSize = true;
             this.lastnameLbl.Font = new System.Drawing.Font("Leelawadee UI", 10.75F, System.Drawing.FontStyle.Bold);
             this.lastnameLbl.ForeColor = System.Drawing.Color.Silver;
-            this.lastnameLbl.Location = new System.Drawing.Point(388, 162);
+            this.lastnameLbl.Location = new System.Drawing.Point(478, 162);
             this.lastnameLbl.Name = "lastnameLbl";
             this.lastnameLbl.Size = new System.Drawing.Size(81, 20);
             this.lastnameLbl.TabIndex = 67;
@@ -157,7 +157,7 @@
             this.firstnameLbl.AutoSize = true;
             this.firstnameLbl.Font = new System.Drawing.Font("Leelawadee UI", 10.75F, System.Drawing.FontStyle.Bold);
             this.firstnameLbl.ForeColor = System.Drawing.Color.Silver;
-            this.firstnameLbl.Location = new System.Drawing.Point(388, 132);
+            this.firstnameLbl.Location = new System.Drawing.Point(478, 132);
             this.firstnameLbl.Name = "firstnameLbl";
             this.firstnameLbl.Size = new System.Drawing.Size(83, 20);
             this.firstnameLbl.TabIndex = 66;
@@ -169,7 +169,7 @@
             this.idLbl.AutoSize = true;
             this.idLbl.Font = new System.Drawing.Font("Leelawadee UI", 10.75F, System.Drawing.FontStyle.Bold);
             this.idLbl.ForeColor = System.Drawing.Color.Silver;
-            this.idLbl.Location = new System.Drawing.Point(388, 102);
+            this.idLbl.Location = new System.Drawing.Point(478, 102);
             this.idLbl.Name = "idLbl";
             this.idLbl.Size = new System.Drawing.Size(29, 20);
             this.idLbl.TabIndex = 65;
@@ -181,7 +181,7 @@
             this.nameLbl.AutoSize = true;
             this.nameLbl.Font = new System.Drawing.Font("Leelawadee UI", 20.75F, System.Drawing.FontStyle.Bold);
             this.nameLbl.ForeColor = System.Drawing.Color.Silver;
-            this.nameLbl.Location = new System.Drawing.Point(385, 35);
+            this.nameLbl.Location = new System.Drawing.Point(475, 35);
             this.nameLbl.Name = "nameLbl";
             this.nameLbl.Size = new System.Drawing.Size(95, 38);
             this.nameLbl.TabIndex = 64;
@@ -211,15 +211,16 @@
             this.staffList.ItemHeight = 19;
             this.staffList.Location = new System.Drawing.Point(30, 73);
             this.staffList.Name = "staffList";
-            this.staffList.Size = new System.Drawing.Size(313, 251);
+            this.staffList.Size = new System.Drawing.Size(422, 251);
             this.staffList.TabIndex = 62;
             this.staffList.SelectedIndexChanged += new System.EventHandler(this.staffList_SelectedIndexChanged);
             // 
             // assignTxt
             // 
-            this.assignTxt.Location = new System.Drawing.Point(443, 343);
+            this.assignTxt.Font = new System.Drawing.Font("Leelawadee UI", 10.75F, System.Drawing.FontStyle.Bold);
+            this.assignTxt.Location = new System.Drawing.Point(533, 339);
             this.assignTxt.Name = "assignTxt";
-            this.assignTxt.Size = new System.Drawing.Size(57, 20);
+            this.assignTxt.Size = new System.Drawing.Size(44, 27);
             this.assignTxt.TabIndex = 81;
             this.assignTxt.TextChanged += new System.EventHandler(this.assignTxt_TextChanged);
             // 
@@ -228,7 +229,7 @@
             this.floorLbl.AutoSize = true;
             this.floorLbl.Font = new System.Drawing.Font("Leelawadee UI", 10.75F, System.Drawing.FontStyle.Bold);
             this.floorLbl.ForeColor = System.Drawing.Color.Silver;
-            this.floorLbl.Location = new System.Drawing.Point(388, 342);
+            this.floorLbl.Location = new System.Drawing.Point(478, 342);
             this.floorLbl.Name = "floorLbl";
             this.floorLbl.Size = new System.Drawing.Size(49, 20);
             this.floorLbl.TabIndex = 82;
@@ -241,7 +242,7 @@
             this.assignBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.assignBtn.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.assignBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.assignBtn.Location = new System.Drawing.Point(392, 379);
+            this.assignBtn.Location = new System.Drawing.Point(482, 379);
             this.assignBtn.Margin = new System.Windows.Forms.Padding(4);
             this.assignBtn.Name = "assignBtn";
             this.assignBtn.Size = new System.Drawing.Size(99, 37);
@@ -254,7 +255,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(91, 344);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(252, 20);
+            this.textBox1.Size = new System.Drawing.Size(361, 20);
             this.textBox1.TabIndex = 84;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -294,7 +295,7 @@
             this.generateBtn.Location = new System.Drawing.Point(30, 32);
             this.generateBtn.Margin = new System.Windows.Forms.Padding(4);
             this.generateBtn.Name = "generateBtn";
-            this.generateBtn.Size = new System.Drawing.Size(313, 34);
+            this.generateBtn.Size = new System.Drawing.Size(422, 34);
             this.generateBtn.TabIndex = 87;
             this.generateBtn.Text = "Load Staff";
             this.generateBtn.UseVisualStyleBackColor = false;

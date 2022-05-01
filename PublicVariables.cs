@@ -9,7 +9,13 @@ namespace NEA
 {
     public class Medication
     {
-        public static Medication displayMedicationInfo()
+
+        public Medication()
+        {
+
+        }
+
+        public Medication(string MedicationName)
         {
             SQLiteConnection databaseConnection = new SQLiteConnection("Data Source = StaffDatabaseComplete.db");
             SQLiteCommand customCommand;
@@ -19,20 +25,42 @@ namespace NEA
             customCommand = new SQLiteCommand();
             databaseConnection.Open();
             customCommand.Connection = databaseConnection;
-            customCommand.CommandText = "select * from MedicationTable";
+            customCommand.CommandText = "select MedicationID, Medication, MedicationAmount from MedicationTable WHERE Medication ='" + MedicationName + "'";
             dataReader = customCommand.ExecuteReader();
-
-            Medication SelectedMedication = new Medication();
 
             while (dataReader.Read())
             {
-                SelectedMedication._displaymedicationID = Convert.ToInt32(dataReader["MedicationID"]);
-                SelectedMedication._displaymedicationName = Convert.ToString(dataReader["MedicationName"]);
-                SelectedMedication._displaymedicationAmount = Convert.ToInt32(dataReader["MedicationAmount"]);
+                this._displaymedicationID = Convert.ToInt32(dataReader["MedicationID"]);
+                this._displayMedication = Convert.ToString(dataReader["Medication"]);
+                this._displaymedicationAmount = Convert.ToString(dataReader["MedicationAmount"]);
             }
             databaseConnection.Close();
-            return SelectedMedication;
         }
+
+        //public static Medication displayMedicationInfo()
+        //{
+        //    SQLiteConnection databaseConnection = new SQLiteConnection("Data Source = StaffDatabaseComplete.db");
+        //    SQLiteCommand customCommand;
+        //    SQLiteDataReader dataReader;
+        //    List<Medication> MedicationInfo = new List<Medication>();
+
+        //    customCommand = new SQLiteCommand();
+        //    databaseConnection.Open();
+        //    customCommand.Connection = databaseConnection;
+        //    customCommand.CommandText = "select * from MedicationTable";
+        //    dataReader = customCommand.ExecuteReader();
+
+        //    Medication SelectedMedication = new Medication();
+
+        //    while (dataReader.Read())
+        //    {
+        //        SelectedMedication._displaymedicationID = Convert.ToInt32(dataReader["MedicationID"]);
+        //        SelectedMedication._displaymedicationName = Convert.ToString(dataReader["MedicationName"]);
+        //        SelectedMedication._displaymedicationAmount = Convert.ToInt32(dataReader["MedicationAmount"]);
+        //    }
+        //    databaseConnection.Close();
+        //    return SelectedMedication;
+        //}
 
 
         private int _displaymedicationID;
@@ -45,63 +73,64 @@ namespace NEA
             _displaymedicationID = displaymedicationID;
         }
         //---------------------------------------------------------------------------------
-        private string _displaymedicationName;
-        public string getdisplaymedicationName()
+        private string _displayMedication;
+        public string getdisplayMedication()
         {
-            return _displaymedicationName;
+            return _displayMedication;
         }
-        public void setdisplaymedicationName(string displaymedicationName)
+        public void setdisplayMedication(string displayMedication)
         {
-            _displaymedicationName = displaymedicationName;
+            _displayMedication = displayMedication;
         }
         //---------------------------------------------------------------------------------
-        private int _displaymedicationAmount;
-        public int getdisplaymedicationAmount()
+        private string _displaymedicationAmount;
+        public string getdisplaymedicationAmount()
         {
             return _displaymedicationAmount;
         }
-        public void setdisplaymedicationAmount(int displaymedicationAmount)
+        public void setdisplaymedicationAmount(string displaymedicationAmount)
         {
             _displaymedicationAmount = displaymedicationAmount;
+        }
+
+
+        public static List<Medication> getallmedication()
+        {
+            List<Medication> Medicationlist = new List<Medication>();
+            SQLiteConnection databaseConnection = new SQLiteConnection("Data Source = StaffDatabaseComplete.db");
+            SQLiteCommand customCommand;
+            SQLiteDataReader dataReader;
+            List<Medication> MedicationInfo = new List<Medication>();
+
+            customCommand = new SQLiteCommand();
+            databaseConnection.Open();
+            customCommand.Connection = databaseConnection;
+            customCommand.CommandText = "select MedicationID, Medication, MedicationAmount from MedicationTable";
+            dataReader = customCommand.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                Medication m = new Medication();
+
+                m._displaymedicationID = Convert.ToInt32(dataReader["MedicationID"]);
+                m._displayMedication = Convert.ToString(dataReader["Medication"]);
+                m._displaymedicationAmount = Convert.ToString(dataReader["MedicationAmount"]);
+
+                Medicationlist.Add(m);
+            }
+            databaseConnection.Close();
+            return Medicationlist;
         }
     }
 
     public class Resident
     {
-        //public static Resident displayResidentInfo(string firstnameresident)
-        //{
-        //    SQLiteConnection databaseConnection = new SQLiteConnection("Data Source = StaffDatabaseComplete.db");
-        //    SQLiteCommand customCommand;
-        //    SQLiteDataReader dataReader;
-        //    List<Resident> ResidentInfo = new List<Resident>();
-
-        //    customCommand = new SQLiteCommand();
-        //    databaseConnection.Open();
-        //    customCommand.Connection = databaseConnection;
-        //    customCommand.CommandText = "select * from ResidentTable WHERE FirstName ='" + firstnameresident + "'";
-        //    dataReader = customCommand.ExecuteReader();
-
-        //    Resident SelectedResident = new Resident();
-
-        //    while (dataReader.Read())
-        //    {
-        //        SelectedResident._displayresidentID = Convert.ToInt32(dataReader["ResidentID"]);
-        //        SelectedResident._displayresidentFirstName = Convert.ToString(dataReader["FirstName"]);
-        //        SelectedResident._displayresidentLastName = Convert.ToString(dataReader["LastName"]);
-        //        SelectedResident._displayresidentGender = Convert.ToString(dataReader["Gender"]);
-        //        SelectedResident._displayneedMedication = Convert.ToBoolean(dataReader["NeedMedication"]);
-        //        SelectedResident._displayresidentFloorID = Convert.ToInt32(dataReader["FloorIDResident"]);
-        //    }
-        //    databaseConnection.Close();
-        //    return SelectedResident;
-        //}
-
         public Resident()
         {
 
         }
 
-        public Resident(int ID)
+        public Resident(string FirstName)
         {
             SQLiteConnection databaseConnection = new SQLiteConnection("Data Source = StaffDatabaseComplete.db");
             SQLiteCommand customCommand;
@@ -111,7 +140,7 @@ namespace NEA
             customCommand = new SQLiteCommand();
             databaseConnection.Open();
             customCommand.Connection = databaseConnection;
-            customCommand.CommandText = "select ResidentID, FirstName, LastName, Gender, NeedMedication, FloorIDResident from ResidentTable WHERE ResidentID ='" + ID + "'";
+            customCommand.CommandText = "select ResidentID, FirstName, LastName, Gender, NeedMedication, FloorIDResident from ResidentTable WHERE FirstName ='" + FirstName + "'";
             dataReader = customCommand.ExecuteReader();
 
             while (dataReader.Read())
@@ -212,7 +241,6 @@ namespace NEA
                 x._displayneedMedication = Convert.ToBoolean(dataReader["NeedMedication"]);
                 x._displayresidentFloorID = Convert.ToInt32(dataReader["FloorIDResident"]);
 
-                //s._displaystaffFloorID = Convert.ToInt32(dataReader["FloorIDStaff"]);
                 Residentlist.Add(x);
             }
             databaseConnection.Close();
@@ -228,7 +256,7 @@ namespace NEA
 
         }
 
-        public Staff(int ID)
+        public Staff(string FirstName)
         {
             SQLiteConnection databaseConnection = new SQLiteConnection("Data Source = StaffDatabaseComplete.db");
             SQLiteCommand customCommand;
@@ -238,7 +266,7 @@ namespace NEA
             customCommand = new SQLiteCommand();
             databaseConnection.Open();
             customCommand.Connection = databaseConnection;
-            customCommand.CommandText = "select StaffID, FirstName, LastName, Gender, QualifiedForFloor1, QualifiedForFloor2, QualifiedForFloor3, CurrentlyPresent, UsernameStaff, PasswordStaff, PermissionLevel, FloorIDStaff from StaffTable WHERE StaffID ='" + ID + "'";
+            customCommand.CommandText = "SELECT StaffID, FirstName, LastName, Gender, QualifiedForFloor1, QualifiedForFloor2, QualifiedForFloor3, CurrentlyPresent, UsernameStaff, PasswordStaff, PermissionLevel, FloorIDStaff FROM StaffTable WHERE FirstName ='" + FirstName + "'";
             dataReader = customCommand.ExecuteReader();
 
             while (dataReader.Read())
@@ -265,54 +293,20 @@ namespace NEA
                     this._displaystaffPermission = "Regular";
                 }
 
-                this._displaystaffFloorID = Convert.ToInt32(dataReader["FloorIDStaff"]);
+                this._displaystaffFloorID = Convert.ToString(dataReader["FloorIDStaff"]);
+
+                if (this._displaystaffFloorID == "")
+                {
+                    this._displaystaffFloorID = "None";
+                }
+
+                else
+                {
+                    this._displaystaffFloorID = Convert.ToString(dataReader["FloorIDStaff"]);
+                }
             }
             databaseConnection.Close();
         }
-
-
-        //public Staff displayStaffInfo (string firstname)
-        //{
-            //SQLiteConnection databaseConnection = new SQLiteConnection("Data Source = StaffDatabaseComplete.db");
-            //SQLiteCommand customCommand;
-            //SQLiteDataReader dataReader;
-            //List<Staff> StaffInfo = new List<Staff>();
-
-            //customCommand = new SQLiteCommand();
-            //databaseConnection.Open();
-            //customCommand.Connection = databaseConnection;
-            //customCommand.CommandText = "select StaffID, FirstName, LastName, Gender, QualifiedForFloor1, QualifiedForFloor2, QualifiedForFloor3, CurrentlyPresent, UsernameStaff, PasswordStaff, PermissionLevel, FloorIDStaff from StaffTable WHERE FirstName ='" + firstname + "'";
-            //dataReader = customCommand.ExecuteReader();
-
-            //while (dataReader.Read())
-            //{
-            //    this._displaystaffID = dataReader.GetInt32(1);
-            //    this._displaystaffFirstName = Convert.ToString(dataReader["FirstName"]);
-            //    this._displaystaffLastName = Convert.ToString(dataReader["LastName"]);
-            //    this._displaystaffGender = Convert.ToString(dataReader["Gender"]);
-            //    this._displaystaffFloor1 = Convert.ToBoolean(dataReader["QualifiedForFloor1"]);
-            //    this._displaystaffFloor2 = Convert.ToBoolean(dataReader["QualifiedForFloor2"]);
-            //    this._displaystaffFloor3 = Convert.ToBoolean(dataReader["QualifiedForFloor3"]);
-            //    this._displaystaffPresent = Convert.ToBoolean(dataReader["CurrentlyPresent"]);
-            //    this._displaystaffUsername = Convert.ToString(dataReader["UsernameStaff"]);
-            //    this._displaystaffPassword = Convert.ToString(dataReader["PasswordStaff"]);
-            //    this._PermissionChecker = Convert.ToBoolean(dataReader["PermissionLevel"]);
-
-            //    if (this._PermissionChecker == true)
-            //    {
-            //        this._displaystaffPermission = "Admin";
-            //    }
-
-            //    else
-            //    {
-            //        this._displaystaffPermission = "Regular";
-            //    }
-
-            //    this._displaystaffFloorID = Convert.ToInt32(dataReader["FloorIDStaff"]);
-            //}
-            //databaseConnection.Close();
-            //return this;
-        //}
 
 
         private int _displaystaffID;
@@ -435,12 +429,12 @@ namespace NEA
             _PermissionChecker = PermissionChecker;
         }
         //---------------------------------------------------------------------------------
-        private int _displaystaffFloorID;
-        public int getdisplaystaffFloorID()
+        private string _displaystaffFloorID;
+        public string getdisplaystaffFloorID()
         {
             return _displaystaffFloorID;
         }
-        public void setdisplaystaffFloorID(int displaystaffFloorID)
+        public void setdisplaystaffFloorID(string displaystaffFloorID)
         {
             _displaystaffFloorID = displaystaffFloorID;
         }
@@ -456,7 +450,7 @@ namespace NEA
             customCommand = new SQLiteCommand();
             databaseConnection.Open();
             customCommand.Connection = databaseConnection;
-            customCommand.CommandText = "select StaffID, FirstName, LastName, Gender, QualifiedForFloor1, QualifiedForFloor2, QualifiedForFloor3, CurrentlyPresent, UsernameStaff, PasswordStaff, PermissionLevel, FloorIDStaff from StaffTable";
+            customCommand.CommandText = "SELECT StaffID, FirstName, LastName, Gender, QualifiedForFloor1, QualifiedForFloor2, QualifiedForFloor3, CurrentlyPresent, UsernameStaff, PasswordStaff, PermissionLevel, FloorIDStaff FROM StaffTable";
             dataReader = customCommand.ExecuteReader();
 
             while (dataReader.Read())
@@ -484,7 +478,17 @@ namespace NEA
                     s._displaystaffPermission = "Regular";
                 }
 
-                //s._displaystaffFloorID = Convert.ToInt32(dataReader["FloorIDStaff"]);
+                s._displaystaffFloorID = Convert.ToString(dataReader["FloorIDStaff"]);
+
+                if (s._displaystaffFloorID == "")
+                {
+                    s._displaystaffFloorID = "None";
+                }
+
+                else
+                {
+                    s._displaystaffFloorID = Convert.ToString(dataReader["FloorIDStaff"]);
+                }
                 Stafflist.Add(s);
             }
             databaseConnection.Close();
@@ -495,13 +499,17 @@ namespace NEA
 
     class PublicVariables
     {
-        public static bool _permission = false;
 
-        public static bool Permission
-        {
-            get { return _permission; }
-            set { _permission = value; }
-        }
+        public static bool Permission = false;
+
+
+        //public static bool _permission = false;
+
+        //public static bool Permission
+        //{
+        //    get { return _permission; }
+        //    set { _permission = value; }
+        //}
 
         public static bool _checkerbool = false;
 
